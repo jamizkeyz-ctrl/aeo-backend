@@ -1,0 +1,1860 @@
+{
+  "job_id": "04593dbf-186d-4852-9928-0e22944ca692",
+  "status": "completed",
+  "summary": {
+    "target_brand": "BudgetFlow",
+    "target_domain": "budgetflow.app",
+    "category": "Personal Finance & Multi-Currency Budgeting",
+    "total_prompts_evaluated": 30,
+    "share_of_voice_percentage": 0.0,
+    "average_rank_when_mentioned": 0.0,
+    "competitor_mentions_summary": {
+      "QuickBooks Online": 2,
+      "Xero": 4,
+      "Anaplan": 1,
+      "Lunch Money": 2,
+      "Wallet": 1,
+      "Money Manager": 1,
+      "Monarch Money": 6,
+      "QuickBooks": 6,
+      "Freshbooks": 1,
+      "Sumyfi": 1,
+      "Origin": 3,
+      "Intuit QuickBooks Online": 1,
+      "Tipalti": 1,
+      "NetSuite": 1,
+      "Quicken Simplifi": 2,
+      "NerdWallet": 2,
+      "FreshBooks": 1,
+      "Abacum": 1,
+      "Jourma": 2,
+      "YNAB": 5,
+      "PocketGuard": 7,
+      "Goodbudget": 3,
+      "Mint": 1,
+      "Simplifi by Quicken": 1,
+      "Actual Budget": 1,
+      "Simplifi": 1,
+      "EveryDollar": 1,
+      "Waypoint Budget": 1,
+      "Empower": 1,
+      "Wave": 2,
+      "ZipBooks": 1,
+      "Spendee": 1,
+      "Rocket Money": 2,
+      "Empower Personal Dashboard": 1,
+      "MoneyPatrol": 1,
+      "Float": 1,
+      "PocketSmith": 2,
+      "Revolut": 1,
+      "DualEntry": 1,
+      "Toshl": 1,
+      "Honeydue": 1,
+      "Quicken": 1,
+      "NetSuite ERP": 1,
+      "Wally": 1,
+      "Splitwise": 1,
+      "Finny": 1
+    },
+    "top_citation_urls": [
+      "https://www.forbes.com/financial-services/best-budgeting-apps-2",
+      "https://www.pcmag.com/picks/the-best-personal-finance-services",
+      "https://www.purdueglobal.edu/blog/student-life/budgeting-apps-personal-finance-tools",
+      "https://www.nerdwallet.com/finance/learn/best-budget-apps",
+      "https://getpennies.com/ultimate-multi-currency-budget-tracker",
+      "https://getfinny.app/blog/best-multi-currency-expense-tracking-apps-2026",
+      "https://www.mintos.com/blog/budgeting-apps",
+      "https://useorigin.com/resources/blog/best-personal-finance-apps-for-freelancers-in-2026",
+      "https://jourma.de/en/blog/best-multi-currency-travel-budget-apps-2026-a7hw",
+      "https://useorigin.com/resources/blog/the-best-personal-finance-budgeting-tools-for-2026-comprehensive-guide-for-smart-money-management"
+    ],
+    "individual_reports": [
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "best personal finance tools for startups",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "QuickBooks Online",
+            "rank": 1,
+            "key_reason": "Robust accounting features"
+          },
+          {
+            "name": "Xero",
+            "rank": 2,
+            "key_reason": "Budgeting features"
+          },
+          {
+            "name": "Anaplan",
+            "rank": 3,
+            "key_reason": "Forecasting features"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://qubit.capital/blog/best-financial-planning-softwares",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.qapita.com/blog/financial-planning-tools-for-startups",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.rho.co/blog/financial-management-software",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=kTMQJDHpV_k&vl=en",
+            "source_type": "other",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://mercury.com/blog/best-accounting-software-startups-2025",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights BudgetFlow's unique features for startups, focusing on scalability and integration.",
+          "Engage with financial blogs and websites to get BudgetFlow mentioned in their lists of recommended tools.",
+          "Optimize BudgetFlow's SEO to rank higher for queries related to personal finance tools for startups."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow",
+        "prompt_evaluated": "top 5 multi-currency budgeting apps",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Lunch Money",
+            "rank": 1,
+            "key_reason": "Robust features for international finance management"
+          },
+          {
+            "name": "Wallet",
+            "rank": 2,
+            "key_reason": "Robust features for international finance management"
+          },
+          {
+            "name": "Money Manager",
+            "rank": 3,
+            "key_reason": "Robust features for international finance management"
+          },
+          {
+            "name": "Monarch Money",
+            "rank": 4,
+            "key_reason": "Robust features for international finance management"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://getpennies.com/ultimate-multi-currency-budget-tracker",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://borderlessbudget.com/compare/budgeting-apps-with-multi-currency",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://getfinny.app/blog/best-multi-currency-expense-tracking-apps-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://yieldfund.com/top-budgeting-apps-for-2026-the-ultimate-guide",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.mintos.com/blog/budgeting-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create high-quality content that highlights BudgetFlow's unique features and benefits for multi-currency budgeting.",
+          "Engage with bloggers and influencers in the personal finance niche to secure mentions and reviews of BudgetFlow.",
+          "Optimize BudgetFlow's website for SEO to improve visibility for queries related to multi-currency budgeting apps."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "best budgeting apps for freelancers",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "QuickBooks",
+            "rank": 1,
+            "key_reason": "Top budgeting app for freelancers"
+          },
+          {
+            "name": "Xero",
+            "rank": 2,
+            "key_reason": "Top budgeting app for freelancers"
+          },
+          {
+            "name": "Freshbooks",
+            "rank": 3,
+            "key_reason": "Top budgeting app for freelancers"
+          },
+          {
+            "name": "Sumyfi",
+            "rank": 4,
+            "key_reason": "Handling irregular income and cash flow"
+          },
+          {
+            "name": "Origin",
+            "rank": 5,
+            "key_reason": "Advanced features like predictive forecasting"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.youtube.com/watch?v=WcgnXqo6b14",
+            "source_type": "other",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://useorigin.com/resources/blog/best-personal-finance-apps-for-freelancers-in-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.sumyfi.com/best-finance-app-for-freelancers",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.linkedin.com/pulse/budgeting-saving-apps-keep-my-freelance-life-stable-5-fomenkova-56t5f",
+            "source_type": "other",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.monefy.com",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create targeted content that highlights BudgetFlow's unique features for freelancers.",
+          "Engage with freelance communities on platforms like Reddit and LinkedIn to promote BudgetFlow.",
+          "Optimize SEO for keywords related to budgeting apps for freelancers to improve visibility."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "most effective personal finance software for small businesses",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Intuit QuickBooks Online",
+            "rank": 1,
+            "key_reason": "Highly effective for small business personal finance management."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.pcmag.com/picks/the-best-small-business-accounting-software",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.moneyspire.com",
+            "source_type": "official_site",
+            "supports_competitor": false,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.quicken.com",
+            "source_type": "official_site",
+            "supports_competitor": false,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.pcmag.com/picks/the-best-personal-finance-services",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.workato.com/the-connector/best-finance-apps-for-small-business",
+            "source_type": "blog_listicle",
+            "supports_competitor": false,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights BudgetFlow's unique features and benefits for small businesses.",
+          "Engage in SEO strategies to improve BudgetFlow's visibility for personal finance software queries.",
+          "Reach out to relevant publications and blogs for potential inclusion in their lists of recommended finance software."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "top tools for managing multiple currencies",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Tipalti",
+            "rank": 1,
+            "key_reason": "Offers multi-currency accounting"
+          },
+          {
+            "name": "QuickBooks",
+            "rank": 2,
+            "key_reason": "Offers multi-currency accounting"
+          },
+          {
+            "name": "NetSuite",
+            "rank": 3,
+            "key_reason": "Offers multi-currency accounting"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.finlens.app/blogs/best-tools-track-multiple-currencies",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://tipalti.com/blog/multi-currency-accounting-software",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.chift.eu/blog/how-to-handle-multi-currency-in-different-accounting-tools",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.dualentry.com/blog/the-best-software-for-multi-currency-accounting",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.gartner.com/reviews/market/currency-management-software",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights BudgetFlow's unique features for managing multiple currencies.",
+          "Engage with financial blogs and websites to get BudgetFlow mentioned in their lists of top tools.",
+          "Optimize BudgetFlow's website for SEO keywords related to multi-currency management to improve visibility."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "best personal finance management apps for families",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Quicken Simplifi",
+            "rank": 1,
+            "key_reason": "Comprehensive budgeting and financial tracking tools"
+          },
+          {
+            "name": "NerdWallet",
+            "rank": 2,
+            "key_reason": "Comprehensive budgeting and financial tracking tools"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://robberger.com/best-family-budget-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.quicken.com/blog/best-tools-and-apps-for-managing-family-and-household-finances-in-2026",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.purdueglobal.edu/blog/student-life/budgeting-apps-personal-finance-tools",
+            "source_type": "blog_listicle",
+            "supports_competitor": false,
+            "supports_target": false
+          },
+          {
+            "url": "https://albert.com/blog/family-budget-app",
+            "source_type": "blog_listicle",
+            "supports_competitor": false,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.pcmag.com/picks/the-best-personal-finance-services",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create high-quality content that highlights BudgetFlow's unique features and benefits for families.",
+          "Engage with financial bloggers and influencers to get BudgetFlow mentioned in relevant articles and lists.",
+          "Optimize BudgetFlow's website for SEO to improve visibility for queries related to family finance management apps."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "leading budgeting solutions for entrepreneurs",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "QuickBooks",
+            "rank": 1,
+            "key_reason": "Widely recognized and feature-rich."
+          },
+          {
+            "name": "FreshBooks",
+            "rank": 2,
+            "key_reason": "User-friendly and popular among small businesses."
+          },
+          {
+            "name": "Abacum",
+            "rank": 3,
+            "key_reason": "Focused on mid-sized businesses with advanced features."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.drivetrain.ai/solutions/business-budgeting-planning-software",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.glideapps.com/solutions/entrepreneurs/budgeting-software",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.onlc.com/blog/best-budgeting-software-for-businesses",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.abacum.ai/blog/business-budgeting-software-buyers-guide",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.uschamber.com/co/run/technology/budgeting-features-and-tools",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create targeted content that highlights BudgetFlow's unique features for entrepreneurs.",
+          "Engage in SEO optimization to improve visibility for keywords related to budgeting solutions for entrepreneurs.",
+          "Build partnerships or guest posts on relevant sites to increase citations and brand mentions."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "best multi-currency budget calculators",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Lunch Money",
+            "rank": 1,
+            "key_reason": "Offers real-time conversion and detailed expense tracking."
+          },
+          {
+            "name": "Jourma",
+            "rank": 2,
+            "key_reason": "Supports over 160 currencies and provides free versions with advanced features."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://jourma.de/en/blog/best-multi-currency-travel-budget-apps-2026-a7hw",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://getpennies.com/ultimate-multi-currency-budget-tracker",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.mintos.com/blog/budgeting-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://lunchmoney.app/features/multicurrency",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "/goto?url=CAESeAHuR6pNjrQVnVclF8RPPiB8016xFIqVdFGcL_XtE8TbtjRpID2wqCi-AT-nb9DIJ67-QMIHGdC889LnrJX9CIm1mP2aVTHXd90EsIqJhI73hwjn83mQEegWCEpyZMLq2qF6C9TXraTCBWZyAyztsSfBJvaFhBr3DA%3D%3D",
+            "source_type": "other",
+            "supports_competitor": false,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create a dedicated landing page for multi-currency budgeting that highlights BudgetFlow's unique features and benefits.",
+          "Engage in content marketing by writing blog posts or articles that compare BudgetFlow with competitors like Lunch Money and Jourma, emphasizing its advantages.",
+          "Reach out to the cited sources for potential collaborations or guest posting opportunities to increase visibility and credibility."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow",
+        "prompt_evaluated": "most popular budgeting tools for individuals",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "YNAB",
+            "rank": 1,
+            "key_reason": "Popular budgeting tool with unique features"
+          },
+          {
+            "name": "PocketGuard",
+            "rank": 2,
+            "key_reason": "User-friendly budgeting app"
+          },
+          {
+            "name": "Goodbudget",
+            "rank": 3,
+            "key_reason": "Envelope budgeting method"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.nerdwallet.com/finance/learn/best-budget-apps",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.purdueglobal.edu/blog/student-life/budgeting-apps-personal-finance-tools",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://useorigin.com/resources/blog/the-best-personal-finance-budgeting-tools-for-2026-comprehensive-guide-for-smart-money-management",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.cnbc.com/select/best-free-budgeting-tools",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://getfinny.app/blog/best-budgeting-tools-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create a comprehensive guide on BudgetFlow's unique features and benefits compared to competitors.",
+          "Engage in content marketing by publishing articles on budgeting tips and tools, ensuring BudgetFlow is highlighted as a top choice.",
+          "Reach out to the cited sources for potential inclusion in their lists or articles about budgeting tools."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "best financial planning apps for students",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Mint",
+            "rank": 1,
+            "key_reason": "Free and comprehensive"
+          },
+          {
+            "name": "YNAB",
+            "rank": 2,
+            "key_reason": "Provides a free year for students"
+          },
+          {
+            "name": "Goodbudget",
+            "rank": 3,
+            "key_reason": "Supports manual budgeting and shared budgets"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://collegefinance.com/saving-for-college/6-best-budgeting-apps-for-college-students-and-how-to-choose-one-for-you",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://shorelight.com/student-stories/the-best-budgeting-apps-for-college-students",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.cnbc.com/select/money-apps-for-college-students",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.collegeraptor.com/paying-for-college/articles/financial-advice-planning/best-free-budgeting-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.nerdwallet.com/finance/learn/best-budget-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create targeted content that highlights BudgetFlow's unique features for students, such as ease of use and specific budgeting tools.",
+          "Engage with financial education platforms and blogs to get BudgetFlow mentioned in articles about budgeting apps for students.",
+          "Offer promotions or partnerships with universities to provide BudgetFlow as a recommended financial planning tool for students."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "alternatives to popular budgeting apps",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Monarch Money",
+            "rank": 1,
+            "key_reason": "Popular alternative"
+          },
+          {
+            "name": "Simplifi by Quicken",
+            "rank": 2,
+            "key_reason": "Well-known budgeting app"
+          },
+          {
+            "name": "Actual Budget",
+            "rank": 3,
+            "key_reason": "Privacy-focused, open-source option"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://envelopebudgeting.com/articles/ynab-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.experian.com/blogs/ask-experian/best-budgeting-apps",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.forbes.com/financial-services/best-budgeting-apps-2",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=Ahr7bigMeqA",
+            "source_type": "other",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://useorigin.com/resources/blog/the-best-personal-finance-budgeting-tools-for-2026-comprehensive-guide-for-smart-money-management",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights BudgetFlow as a top alternative to popular budgeting apps.",
+          "Engage with financial bloggers and influencers to feature BudgetFlow in their articles and lists.",
+          "Optimize BudgetFlow's website for SEO to rank for keywords related to budgeting app alternatives."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow",
+        "prompt_evaluated": "cheaper options than Mint for budgeting",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "PocketGuard",
+            "rank": 1,
+            "key_reason": "Cheaper alternative at $7.99/month"
+          },
+          {
+            "name": "NerdWallet",
+            "rank": 2,
+            "key_reason": "Free alternative"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.cnet.com/personal-finance/banking/mint-alternatives",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.engadget.com/apps/the-best-budgeting-apps-to-replace-mint-143047346.html",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.startdoingwell.com/resource/mint-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://getfinny.app/blog/best-mint-alternatives-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=Z3cjuyo-hvs",
+            "source_type": "other",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights BudgetFlow as a cost-effective alternative to Mint, emphasizing unique features and benefits.",
+          "Engage with financial blogs and news sites to secure backlinks and mentions of BudgetFlow in articles discussing budgeting apps.",
+          "Utilize social media and video platforms to promote BudgetFlow's advantages over competitors like PocketGuard and NerdWallet."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow",
+        "prompt_evaluated": "best alternatives to YNAB for personal finance",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Monarch Money",
+            "rank": 1,
+            "key_reason": "Different features and pricing options"
+          },
+          {
+            "name": "PocketGuard",
+            "rank": 2,
+            "key_reason": "Different features and pricing options"
+          },
+          {
+            "name": "Simplifi",
+            "rank": 3,
+            "key_reason": "Different features and pricing options"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.youtube.com/watch?v=OaiXgSnAN-g",
+            "source_type": "other",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://envelopebudgeting.com/articles/ynab-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.pocketsmith.com/ynab-alternative",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://yomio.app/en/blog/ynab-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://robberger.com/ynab-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights BudgetFlow as a top alternative to YNAB, focusing on unique features and benefits.",
+          "Engage with bloggers and influencers in the personal finance space to promote BudgetFlow and secure backlinks.",
+          "Optimize BudgetFlow's website for SEO with keywords related to YNAB alternatives to improve visibility in search results."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "affordable budget tracking apps",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "PocketGuard",
+            "rank": 1,
+            "key_reason": "Affordable and offers automatic tracking."
+          },
+          {
+            "name": "EveryDollar",
+            "rank": 2,
+            "key_reason": "Budgeting plans available."
+          },
+          {
+            "name": "Waypoint Budget",
+            "rank": 3,
+            "key_reason": "Free tiers and budgeting features."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://pocketguard.com/blog/best-free-budget-apps",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.forbes.com/financial-services/best-budgeting-apps-2",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=q_JoQlR7y0g&vl=en-US",
+            "source_type": "other",
+            "supports_competitor": false,
+            "supports_target": false
+          },
+          {
+            "url": "https://waypointbudget.com/blog/best-free-budgeting-apps-2026",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.kiplinger.com/personal-finance/how-to-save-money/best-budgeting-apps",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create high-quality content that highlights BudgetFlow's unique features and benefits compared to competitors.",
+          "Engage in SEO strategies to improve visibility for the keyword 'affordable budget tracking apps' and related terms.",
+          "Reach out to financial blogs and websites for backlinks and mentions to increase authority and presence in the budgeting app space."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "budgeting apps similar to EveryDollar",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Empower",
+            "rank": 1,
+            "key_reason": "Comprehensive financial dashboard"
+          },
+          {
+            "name": "Monarch Money",
+            "rank": 2,
+            "key_reason": "All-in-one tool for budgeting, investment tracking, and net worth monitoring"
+          },
+          {
+            "name": "Goodbudget",
+            "rank": 3,
+            "key_reason": "Uses the envelope budgeting method"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://robberger.com/everydollar-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://play.google.com/store/apps/details?id=com.everydollar.android&hl=en_US",
+            "source_type": "official_site",
+            "supports_competitor": false,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.greenefinneycauley.cpa/resources/blog/top-5-budgeting-apps-to-explore",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.nerdwallet.com/finance/learn/best-budget-apps",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://goodbudget.com/blog/2022/12/goodbudget-vs-everydollar-which-budget-app-is-for-you",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights BudgetFlow's unique features compared to EveryDollar and its competitors.",
+          "Engage in SEO strategies to improve visibility on search engines for queries related to budgeting apps.",
+          "Reach out to bloggers and financial websites for potential backlinks and mentions of BudgetFlow in their articles."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "low-cost alternatives to QuickBooks for finance",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Wave",
+            "rank": 1,
+            "key_reason": "Offers free options for small businesses."
+          },
+          {
+            "name": "Xero",
+            "rank": 2,
+            "key_reason": "Starts at $15/month."
+          },
+          {
+            "name": "ZipBooks",
+            "rank": 3,
+            "key_reason": "Provides free bookkeeping with AI-driven categorization."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.waveapps.com/compare/quickbooks-alternative",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=HpVDQA7L2kU",
+            "source_type": "other",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://synder.com/blog/8-best-free-quickbooks-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.xero.com/us/versus/quickbooks-alternative",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://zipbooks.com/free-quickbooks-alternative",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights BudgetFlow as a low-cost alternative to QuickBooks, focusing on unique features and benefits.",
+          "Engage in SEO optimization to rank for keywords related to low-cost accounting software alternatives.",
+          "Build partnerships or guest posts on finance blogs to increase visibility and credibility in the finance software space."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow",
+        "prompt_evaluated": "best personal finance tools for remote teams",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "PocketGuard",
+            "rank": 1,
+            "key_reason": "Top personal finance tool for budgeting and expense tracking."
+          },
+          {
+            "name": "Spendee",
+            "rank": 2,
+            "key_reason": "Top personal finance tool for budgeting and expense tracking."
+          },
+          {
+            "name": "Origin",
+            "rank": 3,
+            "key_reason": "Comprehensive platform for unified financial planning."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.afro.com/the-best-financial-tools-for-remote-work-professionals",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.pcmag.com/picks/the-best-personal-finance-services",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.purdueglobal.edu/blog/student-life/budgeting-apps-personal-finance-tools",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://useorigin.com/resources/blog/the-best-personal-finance-budgeting-tools-for-2026-comprehensive-guide-for-smart-money-management",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/List_of_personal_finance_software",
+            "source_type": "other",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights BudgetFlow's unique features for remote teams.",
+          "Engage in outreach to get BudgetFlow mentioned in relevant articles and blogs about personal finance tools.",
+          "Optimize BudgetFlow's website for keywords related to personal finance tools for remote teams."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "budgeting apps with free tier features",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "PocketGuard",
+            "rank": 1,
+            "key_reason": "Offers free budgeting features."
+          },
+          {
+            "name": "Rocket Money",
+            "rank": 2,
+            "key_reason": "Offers free budgeting features."
+          },
+          {
+            "name": "Empower Personal Dashboard",
+            "rank": 3,
+            "key_reason": "Offers free budgeting features."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.rocketmoney.com/learn/personal-finance/best-budgeting-apps",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://getfinny.app/blog/best-free-budgeting-apps-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.cnbc.com/select/best-free-budgeting-tools",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=suAxbwOJO4Q",
+            "source_type": "other",
+            "supports_competitor": false,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.experian.com/blogs/ask-experian/best-budgeting-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights BudgetFlow's unique free tier features compared to competitors.",
+          "Engage with financial bloggers and influencers to get BudgetFlow mentioned in their lists of budgeting apps.",
+          "Optimize BudgetFlow's website for SEO to rank higher for queries related to free budgeting apps."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow",
+        "prompt_evaluated": "best budgeting software for large families",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Monarch Money",
+            "rank": 1,
+            "key_reason": "Shared budgeting features and centralized expense tracking."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.forbes.com/financial-services/best-budgeting-apps-2",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://robberger.com/best-family-budget-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://qfamilyway.com/blog/best-budgeting-financial-apps-families-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://marriagekidsandmoney.com/best-budget-apps-for-families",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.quicken.com/blog/best-tools-and-apps-for-managing-family-and-household-finances-in-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights BudgetFlow's unique features for large families, such as collaborative budgeting tools and expense tracking.",
+          "Engage with financial bloggers and influencers to review and promote BudgetFlow as a top choice for family budgeting.",
+          "Optimize BudgetFlow's website for SEO keywords related to budgeting software for large families to improve visibility in search results."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "recommended budgeting tools for freelancers",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "MoneyPatrol",
+            "rank": 1,
+            "key_reason": "Comprehensive financial management"
+          },
+          {
+            "name": "QuickBooks",
+            "rank": 2,
+            "key_reason": "Comprehensive financial management"
+          },
+          {
+            "name": "Float",
+            "rank": 3,
+            "key_reason": "Comprehensive financial management"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://moneypatrol.com/moneytalk/budgeting/budgeting-apps-for-freelancers",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.ipse.co.uk/advice/best-budgeting-apps-and-tools-for-freelancers",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://research.com/software/budgeting-software-for-freelancers",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://useorigin.com/resources/blog/best-personal-finance-apps-for-freelancers-in-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.glideapps.com/solutions/freelancers/budgeting-software",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create high-quality content that highlights BudgetFlow's unique features and benefits for freelancers.",
+          "Engage with relevant online communities and forums to promote BudgetFlow and gather user feedback.",
+          "Optimize BudgetFlow's website for SEO to improve visibility for keywords related to budgeting tools for freelancers."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow",
+        "prompt_evaluated": "personal finance tools that integrate with multiple currencies",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "PocketSmith",
+            "rank": 1,
+            "key_reason": "Offers real-time exchange rate conversion and multi-entity accounting."
+          },
+          {
+            "name": "Revolut",
+            "rank": 2,
+            "key_reason": "Offers real-time exchange rate conversion and multi-entity accounting."
+          },
+          {
+            "name": "DualEntry",
+            "rank": 3,
+            "key_reason": "Offers real-time exchange rate conversion and multi-entity accounting."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.pocketsmith.com/tour/multi-currency",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://getpennies.com/ultimate-multi-currency-budget-tracker",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://getfinny.app/blog/best-multi-currency-expense-tracking-apps-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://tipalti.com/blog/multi-currency-accounting-software",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.dualentry.com/blog/the-best-software-for-multi-currency-accounting",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights BudgetFlow's unique features for multi-currency integration.",
+          "Engage in partnerships or collaborations with financial blogs to increase visibility and credibility.",
+          "Optimize SEO for keywords related to multi-currency personal finance tools to improve search rankings."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow",
+        "prompt_evaluated": "what budgeting app should I use for a startup?",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Wave",
+            "rank": 1,
+            "key_reason": "Offers free budgeting and accounting tools"
+          },
+          {
+            "name": "QuickBooks",
+            "rank": 2,
+            "key_reason": "Provides comprehensive accounting features"
+          },
+          {
+            "name": "Toshl",
+            "rank": 3,
+            "key_reason": "Budget-friendly option for small businesses"
+          },
+          {
+            "name": "Honeydue",
+            "rank": 4,
+            "key_reason": "Suitable for couples and small teams"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://bizee.com/finance/planning/best-financial-budgeting-apps-small-business",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://techcrunch.com/2023/12/29/best-budgeting-apps-for-individuals-startups-and-small-businesses",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.nav.com/accounting-software/best-business-budgeting-apps",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.rho.co/blog/financial-management-software",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=TKQp1vTyyB8",
+            "source_type": "other",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create targeted content that highlights BudgetFlow's unique features for startups.",
+          "Engage in outreach to the cited sources to include BudgetFlow in their recommendations.",
+          "Leverage SEO strategies to improve BudgetFlow's visibility for startup budgeting queries."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow",
+        "prompt_evaluated": "what is the best personal finance software for a small business?",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Quicken",
+            "rank": 1,
+            "key_reason": "Comprehensive features and integration of personal and business accounting."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.quicken.com/blog/best-financial-reporting-and-business-performance-tracking-software-for-small-businesses-in-2026",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.pcmag.com/picks/the-best-small-business-accounting-software",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.techradar.com/best/best-personal-finance-software",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.sofi.com/learn/content/small-business-financial-software",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://use.expensify.com/resource-center/guides/free-personal-finance-software",
+            "source_type": "other",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights BudgetFlow's unique features and benefits for small businesses.",
+          "Engage with financial blogs and websites to secure backlinks and mentions of BudgetFlow in relevant articles.",
+          "Optimize BudgetFlow's website for SEO to improve visibility for queries related to personal finance software for small businesses."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "which multi-currency budgeting app is best for travelers?",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "PocketSmith",
+            "rank": 1,
+            "key_reason": "Robust multi-currency tracking with live conversions."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://jourma.de/en/blog/best-multi-currency-travel-budget-apps-2026-a7hw",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://borderlessbudget.com/blog/best-multi-currency-budgeting-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://getfinny.app/blog/travel-budget-app",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.mintos.com/blog/budgeting-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.internationalinsurance.com/finance/best-money-management-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create high-quality content that highlights BudgetFlow's unique features for travelers, focusing on multi-currency budgeting.",
+          "Engage with travel bloggers and finance influencers to promote BudgetFlow through guest posts or collaborations.",
+          "Optimize BudgetFlow's SEO strategy to target keywords related to multi-currency budgeting apps for travelers."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "best budgeting solution for a team of freelancers",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Origin",
+            "rank": 1,
+            "key_reason": "Predictive forecasting, expense categorization, and integrated retirement planning."
+          },
+          {
+            "name": "NetSuite ERP",
+            "rank": 2,
+            "key_reason": "Robust budgeting and financial management."
+          },
+          {
+            "name": "QuickBooks",
+            "rank": 3,
+            "key_reason": "Comprehensive accounting features."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.cpaforfreelancers.com/keep-your-freelance-finances-on-track-with-these-budgeting-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.ipse.co.uk/advice/best-budgeting-apps-and-tools-for-freelancers",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.glideapps.com/solutions/freelancers/budgeting-software",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://research.com/software/budgeting-software-for-freelancers",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://useorigin.com/resources/blog/best-personal-finance-apps-for-freelancers-in-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create targeted content that highlights BudgetFlow's unique features for freelancers, such as team collaboration tools and expense tracking.",
+          "Engage with the cited sources to request inclusion of BudgetFlow in their recommendations, emphasizing its benefits for freelancers.",
+          "Optimize BudgetFlow's SEO strategy to rank for keywords related to budgeting solutions for freelancers, ensuring visibility in similar queries."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow",
+        "prompt_evaluated": "what budgeting tool should I use for managing expenses?",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "YNAB",
+            "rank": 1,
+            "key_reason": "Recommended for personal use"
+          },
+          {
+            "name": "Rocket Money",
+            "rank": 2,
+            "key_reason": "Recommended for personal use"
+          },
+          {
+            "name": "QuickBooks Online",
+            "rank": 3,
+            "key_reason": "Recommended for business budgeting"
+          },
+          {
+            "name": "Xero",
+            "rank": 4,
+            "key_reason": "Recommended for business budgeting"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://eprints.soas.ac.uk/36141/1/The%20facilitative%20use%20of%20learner-initiated%20translanguaging.pdf",
+            "source_type": "other",
+            "supports_competitor": false,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.cnbc.com/select/best-free-budgeting-tools",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.edvisors.com/money-management/budgeting/best-budgeting-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.purdueglobal.edu/blog/student-life/budgeting-apps-personal-finance-tools",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.abacum.ai/blog/business-budgeting-software-buyers-guide",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights BudgetFlow's unique features and benefits for managing expenses.",
+          "Engage in SEO strategies to improve BudgetFlow's visibility in search results for budgeting tools.",
+          "Reach out to bloggers and news sites for potential mentions or reviews of BudgetFlow."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "best budgeting tools for international students",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Wally",
+            "rank": 1,
+            "key_reason": "Top budgeting tool for tracking expenses in multiple currencies"
+          },
+          {
+            "name": "Splitwise",
+            "rank": 2,
+            "key_reason": "Managing shared costs"
+          },
+          {
+            "name": "YNAB",
+            "rank": 3,
+            "key_reason": "Offers a free year for students"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://collegefinance.com/saving-for-college/6-best-budgeting-apps-for-college-students-and-how-to-choose-one-for-you",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.casita.com/blog/budgeting-apps-international-students",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://getfinny.app/blog/best-budget-apps-for-students-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.aramfo.org/blogs/post/Guide-to-Managing-Finances-While-Studying-Abroad",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.gooverseas.com/blog/how-to-budget-for-study-abroad",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create targeted content that highlights BudgetFlow's unique features for international students, such as multi-currency support and offline access.",
+          "Engage with educational institutions and student organizations to promote BudgetFlow as a budgeting tool specifically designed for international students.",
+          "Optimize SEO for keywords related to budgeting tools for international students to improve visibility in search results."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow",
+        "prompt_evaluated": "what is the best app for managing my household budget?",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "YNAB",
+            "rank": 1,
+            "key_reason": "Detailed planning"
+          },
+          {
+            "name": "PocketGuard",
+            "rank": 2,
+            "key_reason": "Simplicity"
+          },
+          {
+            "name": "Monarch Money",
+            "rank": 3,
+            "key_reason": "Comprehensive financial integration"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.forbes.com/financial-services/best-budgeting-apps-2",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.edvisors.com/money-management/budgeting/best-budgeting-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.nerdwallet.com/finance/learn/best-budget-apps",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.kiplinger.com/personal-finance/how-to-save-money/best-budgeting-apps",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.experian.com/blogs/ask-experian/best-budgeting-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create high-quality content that highlights BudgetFlow's unique features and benefits for household budgeting.",
+          "Engage with financial bloggers and influencers to promote BudgetFlow through guest posts or reviews.",
+          "Optimize BudgetFlow's website for SEO to improve visibility for queries related to household budgeting apps."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "which personal finance app is best for tracking savings?",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Quicken Simplifi",
+            "rank": 1,
+            "key_reason": "Integrated goal-based budgeting and real-time progress tracking."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.quicken.com/blog/the-best-goal-based-budgeting-apps-for-savings-account-syncing-in-2026",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.pcmag.com/picks/the-best-personal-finance-services",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.forbes.com/financial-services/best-budgeting-apps-2",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=q_JoQlR7y0g&vl=en-US",
+            "source_type": "other",
+            "supports_competitor": false,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=P4cJdRuEHTk",
+            "source_type": "other",
+            "supports_competitor": false,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights BudgetFlow's unique features for tracking savings and budgeting.",
+          "Engage with financial bloggers and influencers to review and promote BudgetFlow.",
+          "Optimize BudgetFlow's SEO to rank for keywords related to personal finance and savings tracking."
+        ]
+      },
+      {
+        "target_brand": "BudgetFlow (budgetflow.app)",
+        "prompt_evaluated": "what multi-currency app should I choose for travel expenses?",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Jourma",
+            "rank": 1,
+            "key_reason": "Best for free real-time conversion and expense breakdown features."
+          },
+          {
+            "name": "Finny",
+            "rank": 2,
+            "key_reason": "Uses AI for fast, accurate tracking."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://getfinny.app/blog/best-multi-currency-expense-tracking-apps-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://jourma.de/en/blog/best-multi-currency-travel-budget-apps-2026-a7hw",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.arcido.com/blogs/news/how-to-keep-track-of-your-spending-across-multiple-currencies",
+            "source_type": "blog_listicle",
+            "supports_competitor": false,
+            "supports_target": false
+          },
+          {
+            "url": "https://getfinny.app/blog/travel-budget-app",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.travelwithhello.com/blog/best-expense-tracker-apps-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": false,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create a comprehensive blog post comparing BudgetFlow with competitors like Jourma and Finny, highlighting unique features and benefits.",
+          "Engage in SEO optimization for keywords related to multi-currency travel apps to improve visibility in search results.",
+          "Reach out to travel bloggers and influencers for reviews and mentions of BudgetFlow in their content."
+        ]
+      }
+    ]
+  },
+  "error": null
+}

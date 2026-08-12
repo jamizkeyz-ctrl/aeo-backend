@@ -1,0 +1,1806 @@
+{
+  "job_id": "ef79e541-b2fe-4c91-828d-d6fbafa1cece",
+  "status": "completed",
+  "summary": {
+    "target_brand": "Notion",
+    "target_domain": "notion.so",
+    "category": "Note Taking Software",
+    "total_prompts_evaluated": 30,
+    "share_of_voice_percentage": 76.67,
+    "average_rank_when_mentioned": 1.95,
+    "competitor_mentions_summary": {
+      "ClickUp": 5,
+      "OneNote": 4,
+      "Obsidian": 8,
+      "Apple Notes": 4,
+      "Google Keep": 7,
+      "Microsoft OneNote": 6,
+      "Google Workspace": 1,
+      "Evernote": 8,
+      "Bear": 1,
+      "reMarkable Paper Pro": 1,
+      "Boox Note Air5 C": 1,
+      "Flexnote": 1,
+      "Zotero": 1,
+      "Supernotes": 1,
+      "Cite Evidence": 1,
+      "Storyflow": 2,
+      "Airtable": 1,
+      "MeisterTask": 1,
+      "ProofHub": 1,
+      "Craft": 3,
+      "Coda": 2,
+      "Anytype": 1,
+      "Standard Notes": 1,
+      "ByDesign": 1,
+      "Joplin": 2,
+      "Notopod": 1,
+      "Notability": 1,
+      "Miro": 2,
+      "Lindy": 1,
+      "Otter": 1,
+      "Simplenote": 1,
+      "Stackedit": 1
+    },
+    "top_citation_urls": [
+      "https://thedigitalprojectmanager.com/tools/best-note-taking-apps",
+      "https://storyflow.so/blog/best-note-taking-apps-2026",
+      "https://zapier.com/blog/best-note-taking-apps",
+      "https://learn.g2.com/best-note-taking-apps",
+      "https://tech-insider.org/au/best-note-taking-apps",
+      "https://thebusinessdive.com/notion-alternatives",
+      "https://www.drawboard.com/blog/best-notetaking-apps-students",
+      "https://www.meistertask.com/blog/a-guide-to-the-best-notion-alternatives",
+      "https://www.teamwork.com/blog/notion-alternatives",
+      "https://speaknotes.io/blog/best-note-taking-apps-for-students"
+    ],
+    "individual_reports": [
+      {
+        "target_brand": "Notion",
+        "prompt_evaluated": "best note taking software for startups",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 1,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "ClickUp",
+            "rank": 2,
+            "key_reason": "Comprehensive features and integrations"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://softrankings.com/collections/best-note-taking-app-for-pre-seed-startups-Hznq6KBOUUCa",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://seedtable.com/best-note-taking-startups",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.glinky.ai/blogs/best-ai-note-taking-app",
+            "source_type": "blog_listicle",
+            "supports_competitor": false,
+            "supports_target": true
+          },
+          {
+            "url": "https://supernotes.app/notetaking-for-startups",
+            "source_type": "blog_listicle",
+            "supports_competitor": false,
+            "supports_target": true
+          },
+          {
+            "url": "https://learn.g2.com/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Enhance SEO content targeting 'best note taking software for startups' to improve visibility.",
+          "Engage with the cited blogs for backlinks or guest posting opportunities to strengthen brand presence.",
+          "Create case studies or testimonials from startups using Notion to showcase its effectiveness in note-taking and project management."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "top 5 note taking tools for students",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 2,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "OneNote",
+            "rank": 1,
+            "key_reason": "Widely used and integrates well with Microsoft products."
+          },
+          {
+            "name": "Obsidian",
+            "rank": 3,
+            "key_reason": "Great for linking notes and knowledge management."
+          },
+          {
+            "name": "Apple Notes",
+            "rank": 4,
+            "key_reason": "Simple and effective for Apple users."
+          },
+          {
+            "name": "Google Keep",
+            "rank": 5,
+            "key_reason": "Easy to use and integrates with Google services."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://tech-insider.org/au/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://speaknotes.io/blog/best-note-taking-apps-for-students",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.drawboard.com/blog/best-notetaking-apps-students",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.atlasworkspace.ai/blog/best-note-taking-apps-for-students",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://laxuai.com/blog/best-ai-note-taking-apps-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Create targeted content that highlights Notion's unique features for students, such as collaboration tools and templates.",
+          "Engage with the cited blogs to request inclusion of Notion in future articles or updates, emphasizing its benefits for students.",
+          "Leverage social media and student communities to promote Notion as a top choice for note-taking, using testimonials and case studies."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "best note taking apps for collaboration",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 2,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "Microsoft OneNote",
+            "rank": 1,
+            "key_reason": "Top app for collaboration features."
+          },
+          {
+            "name": "Google Workspace",
+            "rank": 3,
+            "key_reason": "Offers real-time editing and sharing."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://thedigitalprojectmanager.com/tools/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://learn.g2.com/best-note-taking-apps",
+            "source_type": "g2_capterra",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.pcmag.com/picks/the-best-note-taking-apps",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://noteapps.info/best_note_taking_apps_2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": false,
+            "supports_target": true
+          },
+          {
+            "url": "https://zapier.com/blog/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Enhance SEO content targeting collaboration features of Notion to improve visibility.",
+          "Engage with users on platforms like G2 and Reddit to boost brand presence and gather user testimonials.",
+          "Collaborate with bloggers and influencers to create content that highlights Notion's unique collaborative capabilities."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "most popular note taking software in 2023",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 2,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "Evernote",
+            "rank": 1,
+            "key_reason": "Among the most popular note-taking software."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://medium.com/@danielasgharian/three-note-taking-apps-for-2023-d340d31eb6ef",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://noteapps.info",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://apps.apple.com/us/iphone/story/id1655030231",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://evernote.com",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://thedigitalprojectmanager.com/tools/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Enhance SEO content targeting 'most popular note-taking software' to improve visibility.",
+          "Engage with bloggers and content creators to feature Notion in their lists and articles.",
+          "Leverage social proof by showcasing user testimonials and case studies on Notion's website."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "best cross-platform note taking applications",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 1,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "OneNote",
+            "rank": 2,
+            "key_reason": "Good cross-platform support"
+          },
+          {
+            "name": "Evernote",
+            "rank": 3,
+            "key_reason": "Excels in web clipping and multi-device capture"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.atlasworkspace.ai/blog/best-cross-platform-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": false,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=vamhDBhFfOc",
+            "source_type": "other",
+            "supports_competitor": false,
+            "supports_target": true
+          },
+          {
+            "url": "https://beingpaperless.com/8-best-handwriting-apps-for-cross-platform-notes",
+            "source_type": "blog_listicle",
+            "supports_competitor": false,
+            "supports_target": true
+          },
+          {
+            "url": "https://storyflow.so/blog/best-note-taking-apps-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": false,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.reddit.com/r/productivity/comments/1irsbn0/best_notetaking_app_thats_completely",
+            "source_type": "reddit",
+            "supports_competitor": false,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Create more content highlighting unique features of Notion compared to competitors.",
+          "Engage with users on platforms like Reddit to boost community presence and gather feedback.",
+          "Optimize SEO for keywords related to cross-platform note-taking to improve visibility."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "top note taking tools for writers",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 1,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "Obsidian",
+            "rank": 2,
+            "key_reason": "Different aspects of writing and research."
+          },
+          {
+            "name": "Bear",
+            "rank": 3,
+            "key_reason": "Different aspects of writing and research."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://scribecount.com/author-resource/writing-tools-for-authors/note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://blog.lulu.com/craft-vs-notion",
+            "source_type": "blog_listicle",
+            "supports_competitor": false,
+            "supports_target": true
+          },
+          {
+            "url": "https://storyflow.so/blog/best-note-taking-apps-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=ByvvdxWqFBw",
+            "source_type": "other",
+            "supports_competitor": false,
+            "supports_target": true
+          },
+          {
+            "url": "https://legendfiction.substack.com/p/i-tested-23-writing-toolsyeah-almost",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Create targeted content that highlights Notion's unique features for writers.",
+          "Engage with the cited blogs and YouTube channels to build backlinks and increase brand visibility.",
+          "Leverage user testimonials and case studies from writers using Notion to enhance credibility."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "best digital notebooks for professionals",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 4,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "reMarkable Paper Pro",
+            "rank": 1,
+            "key_reason": "Excellent writing experience and integration with productivity tools"
+          },
+          {
+            "name": "Boox Note Air5 C",
+            "rank": 2,
+            "key_reason": "Excellent writing experience and integration with productivity tools"
+          },
+          {
+            "name": "Microsoft OneNote",
+            "rank": 3,
+            "key_reason": "Team collaboration and organization"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.zdnet.com/article/best-smart-notebook",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://kenznote.com/blog/digital-notetaker-complete-guide",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://thedigitalprojectmanager.com/tools/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=wi8em-qwYlA",
+            "source_type": "other",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.wired.com/gallery/best-smart-notebooks-and-smart-pens",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Enhance SEO content targeting digital notebooks and productivity tools to improve visibility.",
+          "Create comparison content that highlights Notion's unique features against competitors like reMarkable and Microsoft OneNote.",
+          "Engage with the cited sources to build backlinks and increase brand authority in the digital notebook space."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "best note taking software for researchers",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Flexnote",
+            "rank": 1,
+            "key_reason": "Excels in source annotation and synthesis"
+          },
+          {
+            "name": "Zotero",
+            "rank": 2,
+            "key_reason": "Top for citation management"
+          },
+          {
+            "name": "Supernotes",
+            "rank": 3,
+            "key_reason": "Revolutionary notecard format for organizing ideas efficiently"
+          },
+          {
+            "name": "Cite Evidence",
+            "rank": 4,
+            "key_reason": "AI-powered note-taking with citation management"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://myflexnote.com/blog/best-note-taking-apps-for-researchers",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://storyflow.so/blog/best-note-taking-apps-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": false,
+            "supports_target": false
+          },
+          {
+            "url": "https://citedevidence.com/help/the-best-ai-powered-note-taking-tools-for-researchers-in-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://citycollegelibrary.org/digital-note-taking-apps-that-boost-research-productivity",
+            "source_type": "news",
+            "supports_competitor": false,
+            "supports_target": false
+          },
+          {
+            "url": "https://supernotes.app/notetaking-for-researchers",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create targeted content that highlights Notion's unique features for researchers, such as collaboration tools and customizable templates.",
+          "Engage with relevant online communities (e.g., forums, social media) to promote Notion as a top choice for researchers.",
+          "Optimize SEO for keywords related to note-taking software for researchers to improve visibility in search results."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "best note taking apps for Android",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 3,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "Google Keep",
+            "rank": 1,
+            "key_reason": "Popular and easy to use."
+          },
+          {
+            "name": "OneNote",
+            "rank": 2,
+            "key_reason": "Robust features and integration."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.drawboard.com/blog/best-notetaking-apps-students",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=a_QaZZGfy0E",
+            "source_type": "other",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.techradar.com/best/best-note-taking-apps-android",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://thedigitalprojectmanager.com/tools/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://zapier.com/blog/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Enhance SEO for the keyword 'best note taking apps for Android' to improve visibility.",
+          "Create targeted content that highlights unique features of Notion compared to competitors like Google Keep and OneNote.",
+          "Engage with users on platforms where these citations are shared to promote Notion's strengths."
+        ]
+      },
+      {
+        "target_brand": "Notion",
+        "prompt_evaluated": "best note taking solutions for project management",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 2,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "ClickUp",
+            "rank": 1,
+            "key_reason": "Excels in converting notes into actionable tasks"
+          },
+          {
+            "name": "Storyflow",
+            "rank": 3,
+            "key_reason": "Uses AI to connect notes directly to project deliverables"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://learn.g2.com/best-note-taking-apps",
+            "source_type": "g2_capterra",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://thedigitalprojectmanager.com/tools/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://storyflow.so/blog/best-note-taking-apps-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://medium.com/design-bootcamp/i-tried-40-project-note-taking-apps-what-i-chose-and-my-top-10-list-1d39d41852e4",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://zapier.com/blog/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Enhance SEO content targeting project management and note-taking keywords to improve visibility.",
+          "Create case studies or user testimonials showcasing how Notion integrates notes with project management workflows effectively.",
+          "Engage with the cited blogs and platforms to secure backlinks or mentions in their future content."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "Notion alternatives for team collaboration",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Airtable",
+            "rank": 1,
+            "key_reason": "Project management and real-time collaboration"
+          },
+          {
+            "name": "ClickUp",
+            "rank": 2,
+            "key_reason": "Deep project management features"
+          },
+          {
+            "name": "MeisterTask",
+            "rank": 3,
+            "key_reason": "Simple task management and collaboration"
+          },
+          {
+            "name": "ProofHub",
+            "rank": 4,
+            "key_reason": "Comprehensive project management tools"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.rock.so/blog/notion-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.meistertask.com/blog/a-guide-to-the-best-notion-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.teamwork.com/blog/notion-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.airtable.com/articles/notion-alternatives",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://remotewize.com/notion-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create a comprehensive comparison guide highlighting Notion's unique features versus competitors.",
+          "Engage in content marketing by publishing articles on team collaboration best practices that include Notion prominently.",
+          "Reach out to the cited sources for potential backlinks or mentions of Notion in their content."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "cheaper options than Notion for note taking",
+        "target_brand_mentioned": true,
+        "target_brand_rank": null,
+        "sentiment": "neutral",
+        "competitors_mentioned": [
+          {
+            "name": "Evernote",
+            "rank": 1,
+            "key_reason": "Offers a free plan"
+          },
+          {
+            "name": "Google Keep",
+            "rank": 2,
+            "key_reason": "Completely free"
+          },
+          {
+            "name": "Craft",
+            "rank": 3,
+            "key_reason": "Starts at $5 per month"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.meistertask.com/blog/a-guide-to-the-best-notion-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://thebusinessdive.com/notion-alternatives",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.teamwork.com/blog/notion-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.remio.ai/post/top-10-notion-alternatives-tools-for-smart-note-taking-in-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.xda-developers.com/tried-dozens-notion-alternatives-only-ones-worth-using",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create a comparison guide highlighting Notion's unique features and benefits over competitors.",
+          "Develop targeted content that emphasizes Notion's value proposition, including any free trials or discounts.",
+          "Engage with users on platforms where alternatives are discussed to promote Notion's advantages."
+        ]
+      },
+      {
+        "target_brand": "Notion",
+        "prompt_evaluated": "best free alternatives to Notion",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Coda",
+            "rank": 1,
+            "key_reason": "Unique features for note-taking and project management."
+          },
+          {
+            "name": "Craft",
+            "rank": 2,
+            "key_reason": "Offers unique features for collaboration."
+          },
+          {
+            "name": "Anytype",
+            "rank": 3,
+            "key_reason": "Provides unique features for project management."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.teamwork.com/blog/notion-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://setapp.com/lifestyle/notion-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.xda-developers.com/forget-notion-open-source-alternatives-are-better",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://thebusinessdive.com/notion-alternatives",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.rock.so/blog/notion-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights Notion's unique features compared to competitors.",
+          "Engage in SEO strategies to improve Notion's visibility for queries about alternatives.",
+          "Leverage user testimonials and case studies to showcase Notion's value proposition."
+        ]
+      },
+      {
+        "target_brand": "Notion",
+        "prompt_evaluated": "affordable note taking software compared to Notion",
+        "target_brand_mentioned": true,
+        "target_brand_rank": null,
+        "sentiment": "neutral",
+        "competitors_mentioned": [
+          {
+            "name": "Standard Notes",
+            "rank": 1,
+            "key_reason": "Affordable monthly subscription and robust free tier."
+          },
+          {
+            "name": "Craft",
+            "rank": 2,
+            "key_reason": "Lower monthly cost and focus on simplicity."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://blog.alexanderfyoung.com/i-was-wrong-evernote-vs-notion-vs-other-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.sollmannkann.com/project-management-and-notes/notion-vs-standard-notes",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://thebusinessdive.com/notion-alternatives",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://noteapps.info/best_notion_alternatives_2026_personalized_ad_free",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://blog.lulu.com/craft-vs-notion",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights Notion's unique features compared to competitors like Standard Notes and Craft.",
+          "Develop a pricing comparison page that emphasizes Notion's value proposition against lower-cost alternatives.",
+          "Engage with the cited blogs and news articles to encourage backlinks and mentions of Notion in their discussions."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "Notion-like tools for organizing tasks",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "ClickUp",
+            "rank": 1,
+            "key_reason": "Top alternative for task organization."
+          },
+          {
+            "name": "Coda",
+            "rank": 2,
+            "key_reason": "Customizable project management."
+          },
+          {
+            "name": "ByDesign",
+            "rank": 3,
+            "key_reason": "Flexible task views."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://worksection.com/en/blog/notion-alternatives.html",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.meistertask.com/blog/a-guide-to-the-best-notion-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://setapp.com/lifestyle/notion-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://thedigitalprojectmanager.com/tools/best-notion-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://thebusinessdive.com/notion-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights Notion's unique features compared to competitors like ClickUp, Coda, and ByDesign.",
+          "Engage with bloggers and content creators to include Notion in their lists of alternatives or comparisons.",
+          "Optimize SEO for keywords related to Notion alternatives to improve visibility in search results."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "simple note taking apps that compete with Notion",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 1,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "Google Keep",
+            "rank": 1,
+            "key_reason": "Ease of use and basic note-taking features"
+          },
+          {
+            "name": "Evernote",
+            "rank": 2,
+            "key_reason": "Ease of use and basic note-taking features"
+          },
+          {
+            "name": "OneNote",
+            "rank": 3,
+            "key_reason": "Ease of use and basic note-taking features"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://meetingnotes.com/blog/notion-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://noteapps.info/best_notion_alternatives_2026_personalized_ad_free",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.meistertask.com/blog/a-guide-to-the-best-notion-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://thebusinessdive.com/notion-alternatives",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://slite.com/learn/best-notion-alternatives",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights Notion's unique features compared to competitors like Google Keep, Evernote, and OneNote.",
+          "Engage with the cited blogs and websites to build backlinks and improve Notion's visibility in search results.",
+          "Encourage user-generated content and testimonials that showcase Notion's advantages over the mentioned competitors."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "best note taking software for small teams",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 2,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "Evernote",
+            "rank": 1,
+            "key_reason": "Powerful search and collaboration features"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.guideflow.com/blog/note-taking-software",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://notetakingtools.net/best-note-taking-apps-for-teams",
+            "source_type": "blog_listicle",
+            "supports_competitor": false,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.sheetifycrm.com/blogs/updates/what-are-the-top-5-free-note-taking-apps-for-small-businesses",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://storyflow.so/blog/best-note-taking-apps-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://thedigitalprojectmanager.com/tools/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Create targeted content that highlights Notion's unique features for small teams, such as collaboration tools and integrations.",
+          "Engage with the cited blogs and offer guest posts or collaborations to increase brand visibility and authority in the note-taking software space.",
+          "Encourage user-generated content and testimonials from small teams using Notion to enhance credibility and attract more users."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "note taking applications with a free tier",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 3,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "Microsoft OneNote",
+            "rank": 1,
+            "key_reason": "Offers free tier with substantial storage."
+          },
+          {
+            "name": "Apple Notes",
+            "rank": 2,
+            "key_reason": "Offers free tier with substantial storage."
+          },
+          {
+            "name": "Google Keep",
+            "rank": 3,
+            "key_reason": "Offers free tier with substantial storage."
+          },
+          {
+            "name": "Obsidian",
+            "rank": 4,
+            "key_reason": "Free and open-source option."
+          },
+          {
+            "name": "Joplin",
+            "rank": 5,
+            "key_reason": "Free and open-source option."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://affine.pro/blog/best-free-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://tech-insider.org/au/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://storyflow.so/blog/best-note-taking-apps-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.read.ai/articles/best-free-ai-note-taker-apps-in-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://zapier.com/blog/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Enhance SEO for Notion's free tier features to improve visibility in search results.",
+          "Create targeted content that highlights Notion's unique advantages over competitors in note-taking applications.",
+          "Engage with the cited blogs and websites to secure backlinks and mentions that emphasize Notion's strengths."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "note taking tools with offline access",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 2,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "Evernote",
+            "rank": 1,
+            "key_reason": "Offers offline access for note-taking."
+          },
+          {
+            "name": "Notopod",
+            "rank": 2,
+            "key_reason": "Offers offline access for note-taking."
+          },
+          {
+            "name": "Joplin",
+            "rank": 3,
+            "key_reason": "Offers offline access for note-taking."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://evernote.com/learn/offline-note-taking",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://thedigitalprojectmanager.com/tools/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://github.com/tehtbl/awesome-note-taking",
+            "source_type": "other",
+            "supports_competitor": false,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.atlasworkspace.ai/blog/best-cross-platform-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": false,
+            "supports_target": true
+          },
+          {
+            "url": "https://notopod.com/blog/best-free-note-taking-apps-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": false,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Create content highlighting Notion's offline capabilities and unique features.",
+          "Engage with the blogs that mentioned Notion to encourage backlinks and mentions.",
+          "Optimize Notion's SEO for keywords related to offline note-taking tools."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "best note taking software for academics",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 2,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "Notability",
+            "rank": 1,
+            "key_reason": "Excels in iPad and Mac integration"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://www.drawboard.com/blog/best-notetaking-apps-students",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.fastforwardcollegecoaching.com/post/the-best-note-taking-apps-programs-for-college-students",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/Comparison_of_note-taking_software",
+            "source_type": "other",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://krisp.ai/blog/blog-best-note-taking-apps-for-students",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://speaknotes.io/blog/best-note-taking-apps-for-students",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Create targeted content that highlights Notion's unique features for academic use, such as collaboration tools and templates.",
+          "Engage with educational blogs and websites to secure backlinks and mentions of Notion in their lists of recommended note-taking software.",
+          "Leverage social media campaigns targeting students and educators to increase brand awareness and drive traffic to Notion's academic resources."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "which note taking app is best for remote work?",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 1,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "Obsidian",
+            "rank": 2,
+            "key_reason": "Preferred for privacy as it stores notes locally."
+          },
+          {
+            "name": "Apple Notes",
+            "rank": 3,
+            "key_reason": "Solid choice for those in the Apple ecosystem."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://evernote.com/learn/best-note-taking-methods-for-remote-teams",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://affine.pro/blog/best-note-taking-app",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://tech-insider.org/au/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://learn.g2.com/best-note-taking-apps",
+            "source_type": "g2_capterra",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=nyIaG36r2kQ",
+            "source_type": "other",
+            "supports_competitor": true,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Create targeted content that highlights Notion's unique features for remote work, such as collaboration tools and integrations.",
+          "Engage with users on platforms where these citations are found to promote Notion's advantages over competitors like Obsidian and Apple Notes.",
+          "Leverage SEO strategies to improve Notion's visibility in search results related to note-taking apps for remote work."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "what note taking solution should I use for brainstorming?",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 2,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "Miro",
+            "rank": 1,
+            "key_reason": "Collaborative, visual note-taking."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://thedigitalprojectmanager.com/tools/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://apps.apple.com/kr/vision/collections/eds.5049962e-4c64-4f1d-9532-8ce09d0eb43e?l=en-GB",
+            "source_type": "other",
+            "supports_competitor": false,
+            "supports_target": false
+          },
+          {
+            "url": "https://blog.box.com/best-note-taking-methods",
+            "source_type": "blog_listicle",
+            "supports_competitor": false,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=8WIkrZr3XWI",
+            "source_type": "other",
+            "supports_competitor": false,
+            "supports_target": false
+          },
+          {
+            "url": "https://teaching.uic.edu/cate-teaching-guides/inclusive-equity-minded-teaching-practices/note-taking",
+            "source_type": "official_site",
+            "supports_competitor": false,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Create targeted content that highlights Notion's unique features for brainstorming and note-taking.",
+          "Engage with communities on platforms like Reddit or forums where brainstorming tools are discussed to promote Notion.",
+          "Optimize SEO for keywords related to brainstorming and note-taking solutions to improve visibility."
+        ]
+      },
+      {
+        "target_brand": "Notion",
+        "prompt_evaluated": "which note taking software is best for managing projects?",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 1,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "ClickUp",
+            "rank": 2,
+            "key_reason": "Excels in consolidating notes, tasks, and projects in one platform."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://thedigitalprojectmanager.com/tools/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://learn.g2.com/best-note-taking-apps",
+            "source_type": "g2_capterra",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://medium.com/design-bootcamp/i-tried-40-project-note-taking-apps-what-i-chose-and-my-top-10-list-1d39d41852e4",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://storyflow.so/blog/best-note-taking-apps-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://noteapps.info/showdown/project-manager",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Create targeted content that highlights Notion's unique features for project management and note-taking.",
+          "Engage with the cited sources to encourage backlinks and mentions of Notion in their content.",
+          "Leverage user testimonials and case studies that showcase successful project management using Notion."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "what is the best note taking app for capturing ideas?",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 1,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "Obsidian",
+            "rank": 2,
+            "key_reason": "for linked knowledge graphs"
+          },
+          {
+            "name": "Evernote",
+            "rank": 3,
+            "key_reason": "for multi-device capture"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://thedigitalprojectmanager.com/tools/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.obsibrain.com/blog/note-taker-app-the-7-best-ways-to-capture-ideas-in-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://storyflow.so/blog/best-note-taking-apps-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.drawboard.com/blog/best-notetaking-apps-students",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://noteapps.info",
+            "source_type": "other",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Increase backlinks from high-authority sites that mention Notion favorably.",
+          "Create targeted content that highlights Notion's unique features compared to competitors like Obsidian and Evernote.",
+          "Engage with users on platforms where note-taking apps are discussed to enhance brand visibility and sentiment."
+        ]
+      },
+      {
+        "target_brand": "Notion",
+        "prompt_evaluated": "best note taking software for personal productivity",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 4,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "Microsoft OneNote",
+            "rank": 1,
+            "key_reason": "Top choice for personal productivity"
+          },
+          {
+            "name": "Apple Notes",
+            "rank": 2,
+            "key_reason": "Top choice for personal productivity"
+          },
+          {
+            "name": "Google Keep",
+            "rank": 3,
+            "key_reason": "Top choice for personal productivity"
+          },
+          {
+            "name": "Obsidian",
+            "rank": 5,
+            "key_reason": "Excels for structured, knowledge-based note-taking"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://thedigitalprojectmanager.com/tools/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://storyflow.so/blog/best-note-taking-apps-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/Comparison_of_note-taking_software",
+            "source_type": "other",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://tech-insider.org/au/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://zapier.com/blog/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Create targeted content that highlights Notion's unique features for personal productivity.",
+          "Engage with the cited blogs and websites to secure backlinks and mentions of Notion.",
+          "Leverage user testimonials and case studies to enhance Notion's credibility in the note-taking software space."
+        ]
+      },
+      {
+        "target_brand": "Notion",
+        "prompt_evaluated": "what note taking tool should I choose for meeting notes?",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Lindy",
+            "rank": 1,
+            "key_reason": "for automation"
+          },
+          {
+            "name": "Otter",
+            "rank": 2,
+            "key_reason": "for thoroughness"
+          },
+          {
+            "name": "Google Keep",
+            "rank": 3,
+            "key_reason": "for simplicity"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://asana.com/resources/meeting-notes-tips",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.meetjamie.ai/blog/ai-note-taker",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.lindy.ai/blog/best-meeting-minutes-app",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://thedigitalprojectmanager.com/tools/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://charitydigital.org.uk/topics/the-best-ai-tools-for-meeting-notes-11657",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create targeted content that highlights Notion's features for meeting notes, emphasizing automation, thoroughness, and simplicity.",
+          "Engage in outreach to the cited sources to include Notion in their lists of recommended tools for meeting notes.",
+          "Leverage SEO strategies to improve Notion's visibility for queries related to meeting notes, ensuring it ranks higher than competitors."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "best note taking apps for visual thinkers",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Storyflow",
+            "rank": 1,
+            "key_reason": "Excels in spatial idea connection"
+          },
+          {
+            "name": "Obsidian",
+            "rank": 2,
+            "key_reason": "Ideal for long-term knowledge archives"
+          },
+          {
+            "name": "Miro",
+            "rank": 3,
+            "key_reason": "Supports team collaboration with real-time visual tools"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://storyflow.so/blog/best-note-taking-apps-visual-thinkers-2026",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://scrintal.com/guides/note-taking-software-for-visual-learners",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=3tBUPmV68xg",
+            "source_type": "other",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://toolfinder.com/best/visual-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://tech-insider.org/au/best-note-taking-apps",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights Notion's unique features for visual thinkers, such as its flexibility in organizing information visually.",
+          "Engage with the community on platforms like Reddit or Quora to discuss how Notion can be beneficial for visual learners, potentially generating user-generated content.",
+          "Optimize SEO for keywords related to visual note-taking and ensure Notion is featured prominently in relevant blog posts and articles."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "best note taking solutions for entrepreneurs",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 3,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "Microsoft OneNote",
+            "rank": 1,
+            "key_reason": "Top note-taking solution for organization."
+          },
+          {
+            "name": "Evernote",
+            "rank": 2,
+            "key_reason": "Top note-taking solution for collaboration."
+          },
+          {
+            "name": "Simplenote",
+            "rank": 4,
+            "key_reason": "Lightweight and straightforward option."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://henindia.com/the-ultimate-note-taking-toots-for-entrepreneurs",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://kanbanzone.com/2026/top-10-must-have-productivity-tools-for-entrepreneurs",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.cuttles.io/articles/best-writing-editing-brainstorming-note-taking-tools-for-startups",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://evernote.com/learn/best-note-taking-methods-for-startup-founders",
+            "source_type": "official_site",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://blog.annabyang.com/best-tools-for-capturing-notes",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Create high-quality content that highlights Notion's unique features for entrepreneurs.",
+          "Engage with the cited blogs to build backlinks and improve brand visibility.",
+          "Leverage social media and online communities to promote Notion as a top choice for entrepreneurs."
+        ]
+      },
+      {
+        "target_brand": "Notion (notion.so)",
+        "prompt_evaluated": "most user-friendly note taking software for beginners",
+        "target_brand_mentioned": false,
+        "target_brand_rank": null,
+        "sentiment": "absent",
+        "competitors_mentioned": [
+          {
+            "name": "Microsoft OneNote",
+            "rank": 1,
+            "key_reason": "Intuitive design and wide availability across platforms."
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://tech-insider.org/ca/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://me.pcmag.com/en/productivity/18143/the-best-note-taking-apps",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://krisp.ai/blog/best-note-taking-app-for-windows",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://zapier.com/blog/best-note-taking-apps",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": false
+          },
+          {
+            "url": "https://www.pcmag.com/picks/the-best-note-taking-apps",
+            "source_type": "news",
+            "supports_competitor": true,
+            "supports_target": false
+          }
+        ],
+        "remediation_actions": [
+          "Create content that highlights Notion's user-friendly features specifically for beginners.",
+          "Engage with tech blogs and productivity websites to get Notion featured in their lists of best note-taking apps.",
+          "Leverage social media and user testimonials to showcase how beginners find Notion easy to use."
+        ]
+      },
+      {
+        "target_brand": "Notion",
+        "prompt_evaluated": "best note taking apps for coding and development",
+        "target_brand_mentioned": true,
+        "target_brand_rank": 1,
+        "sentiment": "positive",
+        "competitors_mentioned": [
+          {
+            "name": "Obsidian",
+            "rank": 2,
+            "key_reason": "Markdown support and organization tools"
+          },
+          {
+            "name": "Stackedit",
+            "rank": 3,
+            "key_reason": "Code syntax highlighting and efficient note management"
+          }
+        ],
+        "citations": [
+          {
+            "url": "https://ivantrj.hashnode.dev/resources5-best-note-taking-apps-for-developers",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://dev.to/albertomontalesi/5-best-free-note-taking-apps-for-programmers-2n81?comments_sort=latest",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://dev.to/albertomontalesi/5-best-free-note-taking-apps-for-programmers-2n81",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://medium.com/techdump-me-tech-dump/best-note-taking-app-for-developers-8a107c7f95ab",
+            "source_type": "blog_listicle",
+            "supports_competitor": true,
+            "supports_target": true
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=ragsWjbvkLA",
+            "source_type": "other",
+            "supports_competitor": false,
+            "supports_target": true
+          }
+        ],
+        "remediation_actions": [
+          "Create targeted content that highlights Notion's unique features for developers, such as integration capabilities and collaboration tools.",
+          "Engage with the community on platforms like Reddit and Dev.to to promote Notion as a top choice for developers.",
+          "Optimize SEO for keywords related to note-taking apps for coding to improve visibility and ranking in search results."
+        ]
+      }
+    ]
+  },
+  "error": null
+}
