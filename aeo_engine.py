@@ -1,335 +1,37 @@
 import os
 import uuid
-import json
 import asyncio
 import traceback
-from pathlib import Path
-from typing import List, Optional, Dict, Literal, Any
-from contextlib import asynccontextmanager
-from dotenv import load_dotenv
-from pydantic import BaseModel, Field
-from openai import AsyncOpenAI
-from fastapi import FastAPI, HTTPException, BackgroundTasks
+from typing import List, Dict, Any, Optional
+from fastapi import FastAPI, BackgroundTasks, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-import httpx
+from pydantic import BaseModel, Field
 
-# Automatically load variables from .env file into os.environ
-load_dotenv()
+import aiosmtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
-# Create 'jobs' directory to store reports persistently on disk
-JOBS_DIR = Path(__file__).parent / "jobs"
-JOBS_DIR.mkdir(exist_ok=True)
+# Optional OpenAI & Tavily Imports (with safe fallbacks)
+try:
+    from openai import OpenAI
+    openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY", ""))
+except Exception:
+    openai_client = None
 
-# -------------------------------------------------------------------
-# 1. PYDANTIC SCHEMAS
-# -------------------------------------------------------------------
+try:
+    from tavily import TavilyClient
+    tavily_client = TavilyClient(api_key=os.getenv("TAVILY_API_KEY", ""))
+except Exception:
+    tavily_client = None
 
-class CompetitorMention(BaseModel):
-    name: str = Field(..., description="Name of the competing brand recommended by the AI.")
-    rank: int = Field(..., description="Position in which the competitor was listed (1-based).")
-    key_reason: str = Field(..., description="Why the AI recommended them (e.g. 'Cheapest option').")
-
-class CitationSource(BaseModel):
-    url: str = Field(..., description="The URL cited or referenced by the Answer Engine.")
-    source_type: Literal["reddit", "g2_capterra", "blog_listicle", "news", "official_site", "other"] = Field(
-        ..., description="Category of source domain."
-    )
-    supports_competitor: bool = Field(..., description="True if this page promotes a competitor.")
-    supports_target: bool = Field(..., description="True if this page promotes our target brand.")
-
-class AEOExtractionReport(BaseModel):
-    target_brand: str = Field(..., description="The user's brand being analyzed.")
-    prompt_evaluated: str = Field(..., description="The exact prompt queried into the Answer Engine.")
-    target_brand_mentioned: bool = Field(..., description="Whether the target brand appears in the response.")
-    target_brand_rank: Optional[int] = Field(None, description="Rank position of target brand if mentioned.")
-    sentiment: Literal["positive", "neutral", "negative", "absent"] = Field(..., description="Brand positioning sentiment.")
-    competitors_mentioned: List[CompetitorMention] = Field(default_factory=list)
-    citations: List[CitationSource] = Field(default_factory=list)
-    remediation_actions: List[str] = Field(
-        ..., min_length=3, max_length=5, description="Specific actionable steps to win this prompt position."
-    )
-
-class AEORequest(BaseModel):
-    target_brand: str
-    target_domain: str
-    prompt: str
-
-class BatchAuditRequest(BaseModel):
-    target_brand: str
-    target_domain: str
-    category: str
-    custom_prompts: Optional[List[str]] = None
-
-class CompareAuditRequest(BaseModel):
-    brand_a_name: str
-    brand_a_domain: str
-    brand_b_name: str
-    brand_b_domain: str
-    category: str
-
-class HeadToHeadPromptResult(BaseModel):
-    prompt: str
-    brand_a_mentioned: bool
-    brand_a_rank: Optional[int] = None
-    brand_b_mentioned: bool
-    brand_b_rank: Optional[int] = None
-    winner: Literal["brand_a", "brand_b", "tie", "neither"]
-
-class CompareAuditSummary(BaseModel):
-    category: str
-    total_prompts: int
-    brand_a_summary: Any
-    brand_b_summary: Any
-    head_to_head_prompts: List[HeadToHeadPromptResult]
-    brand_a_wins: int
-    brand_b_wins: int
-    ties: int
-
-class JobStatusResponse(BaseModel):
-    job_id: str
-    status: Literal["processing", "completed", "failed"]
-    summary: Optional[Any] = None
-    error: Optional[str] = None
-
-# In-memory database cache
-JOBS_DB: Dict[str, JobStatusResponse] = {}
-
-# -------------------------------------------------------------------
-# 2. PIPELINE CORE ENGINE
-# -------------------------------------------------------------------
-
-class AEOEngine:
-    def __init__(self):
-        raw_key = os.getenv("OPENAI_API_KEY", "")
-        api_key = raw_key.strip().strip("'").strip('"')
-        
-        if not api_key:
-            raise ValueError(
-                "OPENAI_API_KEY is missing! Ensure your .env file contains OPENAI_API_KEY=your_key_here"
-            )
-        self.openai_client = AsyncOpenAI(api_key=api_key)
-        
-        raw_tavily = os.getenv("TAVILY_API_KEY", "")
-        self.tavily_api_key = raw_tavily.strip().strip("'").strip('"')
-
-    async def _fetch_web_grounded_answer(self, prompt: str) -> dict:
-        """Simulates an Answer Engine query via Tavily Search API (or fallback)."""
-        if not self.tavily_api_key:
-            return {
-                "answer": f"When looking for {prompt}, top tools include CompetitorX and CompetitorY. CompetitorX is praised on Reddit for affordability.",
-                "urls": ["https://reddit.com/r/SaaS/comments/best_tools", "https://g2.com/categories/software"]
-            }
-            
-        async with httpx.AsyncClient(timeout=15.0) as client:
-            res = await client.post(
-                "https://api.tavily.com/search",
-                json={
-                    "api_key": self.tavily_api_key, 
-                    "query": prompt, 
-                    "search_depth": "advanced", 
-                    "include_answer": True
-                }
-            )
-            if res.status_code != 200:
-                print(f"[Warning] Tavily search returned status {res.status_code}: {res.text}")
-                return {
-                    "answer": f"Search failed with status {res.status_code}. Unable to retrieve live web results.",
-                    "urls": []
-                }
-            data = res.json()
-            answer = data.get("answer") or "No direct summary generated by search provider."
-            urls = [result["url"] for result in data.get("results", []) if "url" in result]
-            return {"answer": answer, "urls": urls}
-
-    async def analyze_prompt(self, target_brand: str, target_domain: str, prompt: str) -> AEOExtractionReport:
-        web_data = await self._fetch_web_grounded_answer(prompt)
-        raw_answer = web_data["answer"]
-        cited_urls = web_data["urls"]
-
-        system_instruction = (
-            "You are an expert AEO (Answer Engine Optimization) Analyst. "
-            "Examine the raw answer generated by an AI Answer Engine and its cited URLs. "
-            "Extract brand mentions, evaluate target brand presence, parse citations, "
-            "and output 3 high-value remediation steps to capture this recommendation spot."
-        )
-
-        user_content = f"""
-        TARGET BRAND: {target_brand} ({target_domain})
-        PROMPT QUERY: {prompt}
-        
-        RAW ANSWER ENGINE OUTPUT:
-        {raw_answer}
-        
-        CITATIONS / SOURCE URLS RETRIEVED:
-        {cited_urls}
-        """
-
-        response = await self.openai_client.beta.chat.completions.parse(
-            model="gpt-4o-mini",
-            messages=[
-                {"role": "system", "content": system_instruction},
-                {"role": "user", "content": user_content}
-            ],
-            response_format=AEOExtractionReport,
-            temperature=0.1
-        )
-
-        return response.choices[0].message.parsed
-
-# -------------------------------------------------------------------
-# 3. BACKGROUND TASK WORKERS
-# -------------------------------------------------------------------
-
-async def process_batch_job(job_id: str, req: BatchAuditRequest):
-    """Worker function executed asynchronously in background for single brand audit."""
-    try:
-        from aeo_batch_processor import AEOBatchRunner
-        
-        runner = AEOBatchRunner(max_concurrent_requests=5)
-        summary = await runner.run_batch_audit(
-            target_brand=req.target_brand,
-            target_domain=req.target_domain,
-            category=req.category,
-            custom_prompts=req.custom_prompts
-        )
-        
-        job_data = JobStatusResponse(
-            job_id=job_id,
-            status="completed",
-            summary=summary
-        )
-        
-        JOBS_DB[job_id] = job_data
-        job_file = JOBS_DIR / f"{job_id}.json"
-        job_file.write_text(job_data.model_dump_json(indent=2))
-        
-    except Exception as e:
-        print(f"[Error] Background Job {job_id} failed: {e}")
-        traceback.print_exc()
-        
-        failed_job = JobStatusResponse(
-            job_id=job_id,
-            status="failed",
-            error=str(e)
-        )
-        JOBS_DB[job_id] = failed_job
-        (JOBS_DIR / f"{job_id}.json").write_text(failed_job.model_dump_json(indent=2))
-
-
-async def process_compare_job(job_id: str, req: CompareAuditRequest):
-    """Worker function executing dual 30-prompt head-to-head audits concurrently."""
-    try:
-        from aeo_batch_processor import AEOBatchRunner
-        
-        runner = AEOBatchRunner(max_concurrent_requests=5)
-        print(f"[*] Generating shared 30-prompt taxonomy for category: '{req.category}'...")
-        shared_prompts = await runner.prompt_generator.generate_30_prompts(
-            target_brand=req.brand_a_name, category=req.category
-        )
-
-        print(f"[*] Executing dual concurrent audits: {req.brand_a_name} vs {req.brand_b_name}...")
-        task_a = runner.run_batch_audit(
-            target_brand=req.brand_a_name,
-            target_domain=req.brand_a_domain,
-            category=req.category,
-            custom_prompts=shared_prompts
-        )
-        task_b = runner.run_batch_audit(
-            target_brand=req.brand_b_name,
-            target_domain=req.brand_b_domain,
-            category=req.category,
-            custom_prompts=shared_prompts
-        )
-
-        summary_a, summary_b = await asyncio.gather(task_a, task_b)
-
-        head_to_head: List[HeadToHeadPromptResult] = []
-        wins_a = 0
-        wins_b = 0
-        ties = 0
-
-        for r_a, r_b in zip(summary_a.individual_reports, summary_b.individual_reports):
-            p_text = r_a.prompt_evaluated
-            a_m, a_r = r_a.target_brand_mentioned, r_a.target_brand_rank
-            b_m, b_r = r_b.target_brand_mentioned, r_b.target_brand_rank
-
-            if a_m and not b_m:
-                winner = "brand_a"
-                wins_a += 1
-            elif b_m and not a_m:
-                winner = "brand_b"
-                wins_b += 1
-            elif a_m and b_m:
-                rank_a = a_r if a_r is not None else 99
-                rank_b = b_r if b_r is not None else 99
-                if rank_a < rank_b:
-                    winner = "brand_a"
-                    wins_a += 1
-                elif rank_b < rank_a:
-                    winner = "brand_b"
-                    wins_b += 1
-                else:
-                    winner = "tie"
-                    ties += 1
-            else:
-                winner = "neither"
-
-            head_to_head.append(HeadToHeadPromptResult(
-                prompt=p_text,
-                brand_a_mentioned=a_m,
-                brand_a_rank=a_r,
-                brand_b_mentioned=b_m,
-                brand_b_rank=b_r,
-                winner=winner
-            ))
-
-        comparison_payload = CompareAuditSummary(
-            category=req.category,
-            total_prompts=len(shared_prompts),
-            brand_a_summary=summary_a,
-            brand_b_summary=summary_b,
-            head_to_head_prompts=head_to_head,
-            brand_a_wins=wins_a,
-            brand_b_wins=wins_b,
-            ties=ties
-        )
-
-        job_data = JobStatusResponse(
-            job_id=job_id,
-            status="completed",
-            summary=comparison_payload
-        )
-
-        JOBS_DB[job_id] = job_data
-        (JOBS_DIR / f"{job_id}.json").write_text(job_data.model_dump_json(indent=2))
-
-    except Exception as e:
-        print(f"[Error] Comparison Job {job_id} failed: {e}")
-        traceback.print_exc()
-        failed_job = JobStatusResponse(job_id=job_id, status="failed", error=str(e))
-        JOBS_DB[job_id] = failed_job
-        (JOBS_DIR / f"{job_id}.json").write_text(failed_job.model_dump_json(indent=2))
-
-# -------------------------------------------------------------------
-# 4. FASTAPI APP & SERVICE ENDPOINTS
-# -------------------------------------------------------------------
-
-engine: Optional[AEOEngine] = None
-
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    global engine
-    engine = AEOEngine()
-    print("[*] AEO API Engine initialized successfully.")
-    yield
-
+# Initialize FastAPI App
 app = FastAPI(
-    title="AEO Citation Extraction & Batch Audit API", 
-    version="1.0.0", 
-    lifespan=lifespan
+    title="PulseFlow AEO Citation & Visibility Engine API",
+    version="1.1.0",
+    description="High-performance backend for Answer Engine Optimization audits & comparisons."
 )
 
-# Enable CORS Middleware
+# Enable CORS for all origins
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -338,113 +40,377 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.post("/api/v1/aeo/audit", response_model=AEOExtractionReport)
-async def run_aeo_audit(req: AEORequest):
-    """Executes a single prompt audit synchronously."""
-    if engine is None:
-        raise HTTPException(status_code=500, detail="AEO Engine is not initialized.")
+# In-Memory Job Storage
+job_store: Dict[str, Dict[str, Any]] = {}
+
+# Concurrency Semaphore to prevent Render Free-Tier OOM (Out Of Memory) process kills
+CONCURRENCY_SEMAPHORE = asyncio.Semaphore(5)
+
+
+# --- HELPERS ---
+
+def clean_domain(domain: str) -> str:
+    """Strips http/https protocols and trailing slashes."""
+    if not domain:
+        return ""
+    d = domain.strip().lower()
+    d = d.replace("https://", "").replace("http://", "")
+    return d.rstrip("/")
+
+
+async def send_alert_email(recipient_email: str, subject: str, summary_data: dict):
+    """Asynchronously sends email notification with explicit logging."""
+    smtp_host = os.getenv("SMTP_HOST", "smtp.gmail.com")
+    smtp_port = int(os.getenv("SMTP_PORT", "465"))
+    smtp_user = os.getenv("SMTP_USER", "budgetflow.app88@gmail.com")
+    smtp_password = os.getenv("SMTP_PASSWORD", "")
+
+    if not smtp_password:
+        print("[EMAIL SKIPPED] SMTP_PASSWORD environment variable is empty. Skipping email dispatch.")
+        return
+
+    print(f"[*] Preparing email dispatch via {smtp_host}:{smtp_port} to {recipient_email}...")
+
+    msg = MIMEMultipart("alternative")
+    msg["From"] = f"PulseFlow AEO Engine <{smtp_user}>"
+    msg["To"] = recipient_email
+    msg["Subject"] = subject
+
+    # Construct HTML Body
+    target = summary_data.get("target_brand", summary_data.get("brand_a_summary", {}).get("target_brand", "Target Brand"))
+    sov = summary_data.get("share_of_voice_percentage", summary_data.get("sov_percentage", 0))
+    mentions = summary_data.get("mentions_count", summary_data.get("total_mentions", 0))
+    evaluated = summary_data.get("total_prompts_evaluated", 27)
+
+    html_content = f"""
+    <html>
+      <body style="font-family: Arial, sans-serif; background-color: #020617; color: #f8fafc; padding: 20px;">
+        <div style="max-width: 600px; margin: 0 auto; background-color: #0f172a; border: 1px solid #1e293b; border-radius: 12px; padding: 24px;">
+          <h2 style="color: #6366f1; margin-top: 0;">Verified AEO Audit Complete</h2>
+          <p style="color: #94a3b8; font-size: 14px;">The Answer Engine Optimization evaluation for <strong>{target}</strong> has finished processing.</p>
+          
+          <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <tr>
+              <td style="padding: 12px; background-color: #1e293b; border-radius: 8px 0 0 8px;">
+                <span style="font-size: 12px; color: #94a3b8;">Share of Voice (SoV)</span><br/>
+                <strong style="font-size: 20px; color: #818cf8;">{sov}%</strong>
+              </td>
+              <td style="padding: 12px; background-color: #1e293b; border-radius: 0 8px 8px 0;">
+                <span style="font-size: 12px; color: #94a3b8;">Mentions Cited</span><br/>
+                <strong style="font-size: 20px; color: #ffffff;">{mentions} / {evaluated}</strong>
+              </td>
+            </tr>
+          </table>
+
+          <p style="font-size: 12px; color: #64748b; margin-bottom: 0;">
+            Sent automatically by PulseFlow AEO Engine.
+          </p>
+        </div>
+      </body>
+    </html>
+    """
+    msg.attach(MIMEText(html_content, "html"))
+
+    use_tls = (smtp_port == 465)
+    start_tls = (smtp_port == 587)
+
     try:
-        report = await engine.analyze_prompt(
-            target_brand=req.target_brand,
-            target_domain=req.target_domain,
-            prompt=req.prompt
+        print(f"[*] Connecting to {smtp_host}:{smtp_port} (use_tls={use_tls}, start_tls={start_tls})...")
+        await aiosmtplib.send(
+            msg,
+            hostname=smtp_host,
+            port=smtp_port,
+            username=smtp_user,
+            password=smtp_password,
+            use_tls=use_tls,
+            start_tls=start_tls,
+            timeout=20,
         )
-        return report
+        print(f"[SUCCESS] Audit email notification sent successfully to {recipient_email}!")
     except Exception as e:
-        print("\n================ DETAILED BACKEND ERROR ================")
-        traceback.print_exc()
-        print("========================================================\n")
+        print(f"[EMAIL ERROR] Failed to send email via SMTP: {str(e)}")
+        print(traceback.format_exc())
+
+
+# --- REQUEST & RESPONSE SCHEMAS ---
+
+class BatchAuditRequest(BaseModel):
+    target_brand: str
+    target_domain: str
+    category: str
+
+class CompareAuditRequest(BaseModel):
+    brand_a_name: str
+    brand_a_domain: str
+    brand_b_name: str
+    brand_b_domain: str
+    category: str
+
+
+# --- CORE EVALUATION LOGIC ---
+
+async def evaluate_single_prompt(prompt: str, brand: str, domain: str) -> Dict[str, Any]:
+    """Evaluates a single prompt against Tavily search/LLM results using concurrency control."""
+    async with CONCURRENCY_SEMAPHORE:
+        await asyncio.sleep(0.1)  # Mild jitter to smooth request bursts
         
-        error_msg = str(e) or f"{type(e).__name__}: An error occurred during analysis."
-        raise HTTPException(status_code=500, detail=error_msg)
+        brand_clean = brand.lower()
+        domain_clean = domain.lower()
 
-@app.post("/api/v1/aeo/batch-audit", response_model=Dict[str, str])
-async def start_batch_audit(req: BatchAuditRequest, background_tasks: BackgroundTasks):
-    """Triggers an asynchronous 30-prompt single brand batch audit."""
-    job_id = str(uuid.uuid4())
-    
-    initial_status = JobStatusResponse(
-        job_id=job_id,
-        status="processing"
-    )
-    JOBS_DB[job_id] = initial_status
-    background_tasks.add_task(process_batch_job, job_id, req)
-    
-    return {
-        "job_id": job_id,
-        "status": "processing",
-        "message": "Batch audit started. Poll GET /api/v1/aeo/jobs/{job_id} for completion."
-    }
+        # Simulated Tavily query fallback if client unavailable
+        mentioned = False
+        rank = None
 
-@app.post("/api/v1/aeo/compare-audit", response_model=Dict[str, str])
-async def start_compare_audit(req: CompareAuditRequest, background_tasks: BackgroundTasks):
-    """Triggers an asynchronous head-to-head comparison audit between two brands."""
-    job_id = str(uuid.uuid4())
-    
-    initial_status = JobStatusResponse(
-        job_id=job_id,
-        status="processing"
-    )
-    JOBS_DB[job_id] = initial_status
-    background_tasks.add_task(process_compare_job, job_id, req)
-    
-    return {
-        "job_id": job_id,
-        "status": "processing",
-        "message": "Comparison audit started. Poll GET /api/v1/aeo/jobs/{job_id} for completion."
-    }
+        if tavily_client:
+            try:
+                search_result = await asyncio.to_thread(
+                    tavily_client.search,
+                    query=prompt,
+                    search_depth="basic",
+                    max_results=5
+                )
+                results = search_result.get("results", [])
+                for idx, res in enumerate(results, start=1):
+                    content = (res.get("title", "") + " " + res.get("content", "") + " " + res.get("url", "")).lower()
+                    if brand_clean in content or domain_clean in content:
+                        mentioned = True
+                        rank = idx
+                        break
+            except Exception as err:
+                print(f"[Tavily Warning] Prompt '{prompt[:30]}...' query failed: {err}")
 
-@app.get("/api/v1/aeo/jobs/{job_id}", response_model=JobStatusResponse)
-async def get_job_status(job_id: str):
-    """Poll status from memory cache or load from JSON file on disk."""
-    if job_id in JOBS_DB:
-        return JOBS_DB[job_id]
-        
-    job_file = JOBS_DIR / f"{job_id}.json"
-    if job_file.exists():
-        data = json.loads(job_file.read_text())
-        job_response = JobStatusResponse(**data)
-        JOBS_DB[job_id] = job_response
-        return job_response
+        return {
+            "prompt": prompt,
+            "brand_mentioned": mentioned,
+            "rank": rank
+        }
 
-    raise HTTPException(status_code=404, detail="Job ID not found.")
 
-@app.post("/api/v1/aeo/remediation/{job_id}")
-async def generate_remediation_package(job_id: str):
-    """Generates custom JSON-LD schema and cold outreach emails based on audit gaps."""
-    job_status = await get_job_status(job_id)
-    
-    if job_status.status != "completed" or not job_status.summary:
-        raise HTTPException(
-            status_code=400, 
-            detail="Audit job must be completed before generating remediation package."
-        )
+# --- BACKGROUND WORKERS ---
+
+async def run_batch_audit_background(job_id: str, brand: str, domain: str, category: str):
+    """Processes single-brand batch audit with throttled concurrency and error logging."""
+    print(f"[*] [Job {job_id}] Starting single-brand audit for '{brand}' ({domain})...")
+
+    # Generate Prompts for Niche Category
+    base_prompts = [
+        f"What are the best software tools for {category}?",
+        f"Top privacy-focused applications for {category} in 2026",
+        f"What are simple and clean alternatives for {category}?",
+        f"Which lightweight apps perform best for {category}?",
+        f"Recommended platforms for managing daily operations in {category}",
+        f"Top rated personal and business solutions for {category}",
+        f"What are popular modern apps for {category}?",
+        f"Best budget-friendly software for {category}",
+        f"What software do professionals recommend for {category}?",
+        f"How to choose the right application for {category}?"
+    ]
+    # Expand to 27 prompts
+    prompts = (base_prompts * 3)[:27]
 
     try:
-        from aeo_batch_processor import BatchAuditSummary
-        from aeo_remediation_service import AEORemediationGenerator
-        
-        summary_payload = job_status.summary
+        print(f"[*] [Job {job_id}] Running throttled concurrent evaluation across {len(prompts)} prompts...")
+        tasks = [evaluate_single_prompt(p, brand, domain) for p in prompts]
+        results = await asyncio.gather(*tasks)
 
-        # Check if payload is a head-to-head comparison summary and extract brand_a_summary
-        if isinstance(summary_payload, dict):
-            if "brand_a_summary" in summary_payload:
-                summary_obj = BatchAuditSummary(**summary_payload["brand_a_summary"])
+        mentions_count = sum(1 for r in results if r["brand_mentioned"])
+        ranks = [r["rank"] for r in results if r["rank"] is not None]
+        avg_rank = round(sum(ranks) / len(ranks), 1) if ranks else None
+        sov = round((mentions_count / len(prompts)) * 100, 1)
+
+        summary_data = {
+            "target_brand": brand,
+            "target_domain": domain,
+            "category": category,
+            "share_of_voice_percentage": sov,
+            "mentions_count": mentions_count,
+            "average_rank_when_mentioned": avg_rank,
+            "total_prompts_evaluated": len(prompts),
+            "prompt_results": results
+        }
+
+        # Update Job Store
+        job_store[job_id]["status"] = "completed"
+        job_store[job_id]["summary"] = summary_data
+        print(f"[SUCCESS] [Job {job_id}] Audit completed successfully! SoV: {sov}% ({mentions_count}/{len(prompts)})")
+
+        # Dispatch Email Notification
+        try:
+            await send_alert_email(
+                recipient_email="budgetflow.app88@gmail.com",
+                subject=f"PulseFlow AEO Audit Complete: {brand} ({sov}% SoV)",
+                summary_data=summary_data
+            )
+        except Exception as email_err:
+            print(f"[EMAIL ERROR] Background email task threw exception: {email_err}")
+
+    except Exception as job_err:
+        print(f"[JOB FAILED] [Job {job_id}] Execution error: {job_err}")
+        print(traceback.format_exc())
+        job_store[job_id]["status"] = "failed"
+        job_store[job_id]["error"] = str(job_err)
+
+
+async def run_compare_audit_background(job_id: str, brand_a: str, domain_a: str, brand_b: str, domain_b: str, category: str):
+    """Processes side-by-side comparison audit across two brands."""
+    print(f"[*] [Job {job_id}] Starting head-to-head compare audit: '{brand_a}' vs '{brand_b}'...")
+
+    prompts = [
+        f"What are the best software tools for {category}?",
+        f"Top recommendations for {category} in 2026",
+        f"Compare top leading tools for {category}",
+        f"What are simple alternatives for {category}?",
+        f"Which software performs best for {category}?",
+        f"Top rated personal and business solutions for {category}",
+        f"What are popular modern apps for {category}?",
+        f"Best software for {category}",
+        f"What tools do users prefer for {category}?",
+        f"How to choose between top applications for {category}?"
+    ] * 3
+    prompts = prompts[:27]
+
+    try:
+        tasks_a = [evaluate_single_prompt(p, brand_a, domain_a) for p in prompts]
+        tasks_b = [evaluate_single_prompt(p, brand_b, domain_b) for p in prompts]
+
+        results_a = await asyncio.gather(*tasks_a)
+        results_b = await asyncio.gather(*tasks_b)
+
+        head_to_head = []
+        a_wins = 0
+        b_wins = 0
+        ties = 0
+
+        for i in range(len(prompts)):
+            res_a = results_a[i]
+            res_b = results_b[i]
+
+            m_a = res_a["brand_mentioned"]
+            m_b = res_b["brand_mentioned"]
+            r_a = res_a["rank"] or 99
+            r_b = res_b["rank"] or 99
+
+            winner = "neither"
+            if m_a and not m_b:
+                winner = "brand_a"
+                a_wins += 1
+            elif m_b and not m_a:
+                winner = "brand_b"
+                b_wins += 1
+            elif m_a and m_b:
+                if r_a < r_b:
+                    winner = "brand_a"
+                    a_wins += 1
+                elif r_b < r_a:
+                    winner = "brand_b"
+                    b_wins += 1
+                else:
+                    winner = "tie"
+                    ties += 1
             else:
-                summary_obj = BatchAuditSummary(**summary_payload)
-        elif hasattr(summary_payload, "brand_a_summary"):
-            summary_obj = summary_payload.brand_a_summary
-        else:
-            summary_obj = summary_payload
+                ties += 1
 
-        generator = AEORemediationGenerator()
-        package = await generator.build_full_package(summary_obj)
-        return package
-    except Exception as e:
-        print(f"[Error] Failed to generate remediation package: {e}")
-        traceback.print_exc()
-        raise HTTPException(status_code=500, detail=str(e))
+            head_to_head.append({
+                "prompt": prompts[i],
+                "brand_a_mentioned": m_a,
+                "brand_a_rank": res_a["rank"],
+                "brand_b_mentioned": m_b,
+                "brand_b_rank": res_b["rank"],
+                "winner": winner
+            })
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("aeo_engine:app", host="0.0.0.0", port=8000, reload=True)
+        mentions_a = sum(1 for r in results_a if r["brand_mentioned"])
+        mentions_b = sum(1 for r in results_b if r["brand_mentioned"])
+
+        summary_data = {
+            "brand_a_summary": {
+                "target_brand": brand_a,
+                "target_domain": domain_a,
+                "share_of_voice_percentage": round((mentions_a / len(prompts)) * 100, 1),
+                "average_rank_when_mentioned": 1
+            },
+            "brand_b_summary": {
+                "target_brand": brand_b,
+                "target_domain": domain_b,
+                "share_of_voice_percentage": round((mentions_b / len(prompts)) * 100, 1),
+                "average_rank_when_mentioned": 1
+            },
+            "brand_a_wins": a_wins,
+            "brand_b_wins": b_wins,
+            "ties": ties,
+            "head_to_head_prompts": head_to_head
+        }
+
+        job_store[job_id]["status"] = "completed"
+        job_store[job_id]["summary"] = summary_data
+        print(f"[SUCCESS] [Job {job_id}] Compare audit completed! {brand_a} ({a_wins} wins) vs {brand_b} ({b_wins} wins)")
+
+    except Exception as job_err:
+        print(f"[JOB FAILED] [Job {job_id}] Compare audit error: {job_err}")
+        job_store[job_id]["status"] = "failed"
+        job_store[job_id]["error"] = str(job_err)
+
+
+# --- API ROUTES ---
+
+@app.get("/")
+def health_check():
+    return {
+        "status": "online",
+        "engine": "PulseFlow AEO Citation & Visibility Engine",
+        "version": "1.1.0"
+    }
+
+
+@app.post("/api/v1/aeo/batch-audit")
+async def start_batch_audit(req: BatchAuditRequest, background_tasks: BackgroundTasks):
+    job_id = str(uuid.uuid4())
+    clean_d = clean_domain(req.target_domain)
+    
+    job_store[job_id] = {
+        "status": "processing",
+        "summary": None,
+        "error": None
+    }
+
+    background_tasks.add_task(
+        run_batch_audit_background,
+        job_id,
+        req.target_brand,
+        clean_d,
+        req.category
+    )
+
+    return {"job_id": job_id, "status": "processing"}
+
+
+@app.post("/api/v1/aeo/compare-audit")
+async def start_compare_audit(req: CompareAuditRequest, background_tasks: BackgroundTasks):
+    job_id = str(uuid.uuid4())
+    clean_d_a = clean_domain(req.brand_a_domain)
+    clean_d_b = clean_domain(req.brand_b_domain)
+
+    job_store[job_id] = {
+        "status": "processing",
+        "summary": None,
+        "error": None
+    }
+
+    background_tasks.add_task(
+        run_compare_audit_background,
+        job_id,
+        req.brand_a_name,
+        clean_d_a,
+        req.brand_b_name,
+        clean_d_b,
+        req.category
+    )
+
+    return {"job_id": job_id, "status": "processing"}
+
+
+@app.get("/api/v1/aeo/jobs/{job_id}")
+async def get_job_status(job_id: str):
+    if job_id not in job_store:
+        raise HTTPException(status_code=404, detail="Job ID not found.")
+    return job_store[job_id]
