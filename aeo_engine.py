@@ -11,27 +11,30 @@ import aiosmtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-# Optional OpenAI & Tavily Imports (with safe fallbacks)
+# Optional Supabase Database Client
 try:
-    from openai import OpenAI
-    openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY", ""))
-except Exception:
-    openai_client = None
+    from supabase import create_client, Client
+    supabase_url = os.getenv("SUPABASE_URL", "")
+    supabase_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
+    supabase_db: Optional[Client] = create_client(supabase_url, supabase_key) if (supabase_url and supabase_key) else None
+    if supabase_db:
+        print("[*] Supabase Database client connected successfully.")
+except Exception as e:
+    print(f"[Supabase Init Warning] Could not connect to Supabase: {e}")
+    supabase_db = None
 
+# Optional OpenAI & Tavily
 try:
     from tavily import TavilyClient
     tavily_client = TavilyClient(api_key=os.getenv("TAVILY_API_KEY", ""))
 except Exception:
     tavily_client = None
 
-# Initialize FastAPI App
 app = FastAPI(
     title="PulseFlow AEO Citation & Visibility Engine API",
-    version="1.1.0",
-    description="High-performance backend for Answer Engine Optimization audits & comparisons."
+    version="1.2.0"
 )
 
-# Enable CORS for all origins
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -40,43 +43,55 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# In-Memory Job Storage
 job_store: Dict[str, Dict[str, Any]] = {}
-
-# Concurrency Semaphore to prevent Render Free-Tier OOM (Out Of Memory) process kills
 CONCURRENCY_SEMAPHORE = asyncio.Semaphore(5)
 
 
 # --- HELPERS ---
 
 def clean_domain(domain: str) -> str:
-    """Strips http/https protocols and trailing slashes."""
     if not domain:
         return ""
     d = domain.strip().lower()
-    d = d.replace("https://", "").replace("http://", "")
-    return d.rstrip("/")
+    return d.replace("https://", "").replace("http://", "").rstrip("/")
+
+
+def save_audit_to_db(job_id: str, brand: str, domain: str, category: str, summary: dict, status: str = "completed"):
+    """Persists the finished audit permanently into PostgreSQL."""
+    if not supabase_db:
+        return
+    try:
+        supabase_db.table("audit_jobs").upsert({
+            "id": job_id,
+            "target_brand": brand,
+            "target_domain": domain,
+            "category": category,
+            "status": status,
+            "share_of_voice": summary.get("share_of_voice_percentage", 0),
+            "mentions_count": summary.get("mentions_count", 0),
+            "total_prompts": summary.get("total_prompts_evaluated", 30),
+            "average_rank": summary.get("average_rank_when_mentioned"),
+            "summary_payload": summary
+        }).execute()
+        print(f"[DATABASE] Job {job_id} successfully persisted to Supabase.")
+    except Exception as e:
+        print(f"[DATABASE ERROR] Failed to save job {job_id} to Supabase: {e}")
 
 
 async def send_alert_email(recipient_email: str, subject: str, summary_data: dict):
-    """Asynchronously sends email notification with explicit logging."""
     smtp_host = os.getenv("SMTP_HOST", "smtp.gmail.com")
     smtp_port = int(os.getenv("SMTP_PORT", "465"))
     smtp_user = os.getenv("SMTP_USER", "budgetflow.app88@gmail.com")
     smtp_password = os.getenv("SMTP_PASSWORD", "")
 
     if not smtp_password:
-        print("[EMAIL SKIPPED] SMTP_PASSWORD environment variable is empty. Skipping email dispatch.")
         return
-
-    print(f"[*] Preparing email dispatch via {smtp_host}:{smtp_port} to {recipient_email}...")
 
     msg = MIMEMultipart("alternative")
     msg["From"] = f"PulseFlow AEO Engine <{smtp_user}>"
     msg["To"] = recipient_email
     msg["Subject"] = subject
 
-    # Construct HTML Body
     target = summary_data.get("target_brand", summary_data.get("brand_a_summary", {}).get("target_brand", "Target Brand"))
     sov = summary_data.get("share_of_voice_percentage", summary_data.get("sov_percentage", 0))
     mentions = summary_data.get("mentions_count", summary_data.get("total_mentions", 0))
@@ -87,12 +102,11 @@ async def send_alert_email(recipient_email: str, subject: str, summary_data: dic
       <body style="font-family: Arial, sans-serif; background-color: #020617; color: #f8fafc; padding: 20px;">
         <div style="max-width: 600px; margin: 0 auto; background-color: #0f172a; border: 1px solid #1e293b; border-radius: 12px; padding: 24px;">
           <h2 style="color: #6366f1; margin-top: 0;">Verified AEO Audit Complete</h2>
-          <p style="color: #94a3b8; font-size: 14px;">The Answer Engine Optimization evaluation for <strong>{target}</strong> has finished processing.</p>
-          
+          <p style="color: #94a3b8; font-size: 14px;">Evaluation for <strong>{target}</strong> has finished.</p>
           <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
             <tr>
               <td style="padding: 12px; background-color: #1e293b; border-radius: 8px 0 0 8px;">
-                <span style="font-size: 12px; color: #94a3b8;">Share of Voice (SoV)</span><br/>
+                <span style="font-size: 12px; color: #94a3b8;">Share of Voice</span><br/>
                 <strong style="font-size: 20px; color: #818cf8;">{sov}%</strong>
               </td>
               <td style="padding: 12px; background-color: #1e293b; border-radius: 0 8px 8px 0;">
@@ -101,38 +115,30 @@ async def send_alert_email(recipient_email: str, subject: str, summary_data: dic
               </td>
             </tr>
           </table>
-
-          <p style="font-size: 12px; color: #64748b; margin-bottom: 0;">
-            Sent automatically by PulseFlow AEO Engine.
-          </p>
+          <p style="font-size: 12px; color: #64748b; margin-bottom: 0;">Sent automatically by PulseFlow AEO Engine.</p>
         </div>
       </body>
     </html>
     """
     msg.attach(MIMEText(html_content, "html"))
 
-    use_tls = (smtp_port == 465)
-    start_tls = (smtp_port == 587)
-
     try:
-        print(f"[*] Connecting to {smtp_host}:{smtp_port} (use_tls={use_tls}, start_tls={start_tls})...")
         await aiosmtplib.send(
             msg,
             hostname=smtp_host,
             port=smtp_port,
             username=smtp_user,
             password=smtp_password,
-            use_tls=use_tls,
-            start_tls=start_tls,
+            use_tls=(smtp_port == 465),
+            start_tls=(smtp_port == 587),
             timeout=20,
         )
-        print(f"[SUCCESS] Audit email notification sent successfully to {recipient_email}!")
+        print(f"[SUCCESS] Audit email sent successfully to {recipient_email}")
     except Exception as e:
-        print(f"[EMAIL ERROR] Failed to send email via SMTP: {str(e)}")
-        print(traceback.format_exc())
+        print(f"[EMAIL ERROR] Failed to send email: {e}")
 
 
-# --- REQUEST & RESPONSE SCHEMAS ---
+# --- SCHEMAS ---
 
 class BatchAuditRequest(BaseModel):
     target_brand: str
@@ -147,17 +153,13 @@ class CompareAuditRequest(BaseModel):
     category: str
 
 
-# --- CORE EVALUATION LOGIC ---
+# --- EVALUATION LOGIC ---
 
 async def evaluate_single_prompt(prompt: str, brand: str, domain: str) -> Dict[str, Any]:
-    """Evaluates a single prompt against Tavily search/LLM results using concurrency control."""
     async with CONCURRENCY_SEMAPHORE:
-        await asyncio.sleep(0.1)  # Mild jitter to smooth request bursts
-        
+        await asyncio.sleep(0.1)
         brand_clean = brand.lower()
         domain_clean = domain.lower()
-
-        # Simulated Tavily query fallback if client unavailable
         mentioned = False
         rank = None
 
@@ -177,22 +179,14 @@ async def evaluate_single_prompt(prompt: str, brand: str, domain: str) -> Dict[s
                         rank = idx
                         break
             except Exception as err:
-                print(f"[Tavily Warning] Prompt '{prompt[:30]}...' query failed: {err}")
+                print(f"[Tavily Warning] Prompt '{prompt[:25]}...' error: {err}")
 
-        return {
-            "prompt": prompt,
-            "brand_mentioned": mentioned,
-            "rank": rank
-        }
+        return {"prompt": prompt, "brand_mentioned": mentioned, "rank": rank}
 
 
 # --- BACKGROUND WORKERS ---
 
 async def run_batch_audit_background(job_id: str, brand: str, domain: str, category: str):
-    """Processes single-brand batch audit with throttled concurrency and error logging."""
-    print(f"[*] [Job {job_id}] Starting single-brand audit for '{brand}' ({domain})...")
-
-    # Generate Prompts for Niche Category
     base_prompts = [
         f"What are the best software tools for {category}?",
         f"Top privacy-focused applications for {category} in 2026",
@@ -205,11 +199,9 @@ async def run_batch_audit_background(job_id: str, brand: str, domain: str, categ
         f"What software do professionals recommend for {category}?",
         f"How to choose the right application for {category}?"
     ]
-    # Expand to 27 prompts
     prompts = (base_prompts * 3)[:27]
 
     try:
-        print(f"[*] [Job {job_id}] Running throttled concurrent evaluation across {len(prompts)} prompts...")
         tasks = [evaluate_single_prompt(p, brand, domain) for p in prompts]
         results = await asyncio.gather(*tasks)
 
@@ -229,32 +221,32 @@ async def run_batch_audit_background(job_id: str, brand: str, domain: str, categ
             "prompt_results": results
         }
 
-        # Update Job Store
+        # 1. Update in-memory
         job_store[job_id]["status"] = "completed"
         job_store[job_id]["summary"] = summary_data
-        print(f"[SUCCESS] [Job {job_id}] Audit completed successfully! SoV: {sov}% ({mentions_count}/{len(prompts)})")
 
-        # Dispatch Email Notification
-        try:
-            await send_alert_email(
-                recipient_email="budgetflow.app88@gmail.com",
-                subject=f"PulseFlow AEO Audit Complete: {brand} ({sov}% SoV)",
-                summary_data=summary_data
-            )
-        except Exception as email_err:
-            print(f"[EMAIL ERROR] Background email task threw exception: {email_err}")
+        # 2. Persist permanently to Supabase
+        save_audit_to_db(job_id, brand, domain, category, summary_data, "completed")
+
+        # 3. Email Notification
+        await send_alert_email(
+            recipient_email="budgetflow.app88@gmail.com",
+            subject=f"PulseFlow AEO Audit Complete: {brand} ({sov}% SoV)",
+            summary_data=summary_data
+        )
 
     except Exception as job_err:
-        print(f"[JOB FAILED] [Job {job_id}] Execution error: {job_err}")
-        print(traceback.format_exc())
+        print(f"[JOB FAILED] [Job {job_id}]: {job_err}")
         job_store[job_id]["status"] = "failed"
         job_store[job_id]["error"] = str(job_err)
+        if supabase_db:
+            try:
+                supabase_db.table("audit_jobs").upsert({"id": job_id, "status": "failed", "error_message": str(job_err)}).execute()
+            except Exception:
+                pass
 
 
 async def run_compare_audit_background(job_id: str, brand_a: str, domain_a: str, brand_b: str, domain_b: str, category: str):
-    """Processes side-by-side comparison audit across two brands."""
-    print(f"[*] [Job {job_id}] Starting head-to-head compare audit: '{brand_a}' vs '{brand_b}'...")
-
     prompts = [
         f"What are the best software tools for {category}?",
         f"Top recommendations for {category} in 2026",
@@ -284,7 +276,6 @@ async def run_compare_audit_background(job_id: str, brand_a: str, domain_a: str,
         for i in range(len(prompts)):
             res_a = results_a[i]
             res_b = results_b[i]
-
             m_a = res_a["brand_mentioned"]
             m_b = res_b["brand_mentioned"]
             r_a = res_a["rank"] or 99
@@ -343,22 +334,22 @@ async def run_compare_audit_background(job_id: str, brand_a: str, domain_a: str,
 
         job_store[job_id]["status"] = "completed"
         job_store[job_id]["summary"] = summary_data
-        print(f"[SUCCESS] [Job {job_id}] Compare audit completed! {brand_a} ({a_wins} wins) vs {brand_b} ({b_wins} wins)")
+        save_audit_to_db(job_id, f"{brand_a} vs {brand_b}", f"{domain_a} / {domain_b}", category, summary_data, "completed")
 
     except Exception as job_err:
-        print(f"[JOB FAILED] [Job {job_id}] Compare audit error: {job_err}")
+        print(f"[JOB FAILED] [Job {job_id}]: {job_err}")
         job_store[job_id]["status"] = "failed"
         job_store[job_id]["error"] = str(job_err)
 
 
-# --- API ROUTES ---
+# --- ROUTES ---
 
 @app.get("/")
 def health_check():
     return {
         "status": "online",
-        "engine": "PulseFlow AEO Citation & Visibility Engine",
-        "version": "1.1.0"
+        "engine": "PulseFlow AEO Citation Engine",
+        "database": "connected" if supabase_db else "in-memory only"
     }
 
 
@@ -366,21 +357,23 @@ def health_check():
 async def start_batch_audit(req: BatchAuditRequest, background_tasks: BackgroundTasks):
     job_id = str(uuid.uuid4())
     clean_d = clean_domain(req.target_domain)
+
+    job_store[job_id] = {"status": "processing", "summary": None, "error": None}
     
-    job_store[job_id] = {
-        "status": "processing",
-        "summary": None,
-        "error": None
-    }
+    # Save initial pending row to DB
+    if supabase_db:
+        try:
+            supabase_db.table("audit_jobs").insert({
+                "id": job_id,
+                "target_brand": req.target_brand,
+                "target_domain": clean_d,
+                "category": req.category,
+                "status": "processing"
+            }).execute()
+        except Exception as e:
+            print(f"[DB INSERT PENDING WARNING]: {e}")
 
-    background_tasks.add_task(
-        run_batch_audit_background,
-        job_id,
-        req.target_brand,
-        clean_d,
-        req.category
-    )
-
+    background_tasks.add_task(run_batch_audit_background, job_id, req.target_brand, clean_d, req.category)
     return {"job_id": job_id, "status": "processing"}
 
 
@@ -390,27 +383,30 @@ async def start_compare_audit(req: CompareAuditRequest, background_tasks: Backgr
     clean_d_a = clean_domain(req.brand_a_domain)
     clean_d_b = clean_domain(req.brand_b_domain)
 
-    job_store[job_id] = {
-        "status": "processing",
-        "summary": None,
-        "error": None
-    }
-
-    background_tasks.add_task(
-        run_compare_audit_background,
-        job_id,
-        req.brand_a_name,
-        clean_d_a,
-        req.brand_b_name,
-        clean_d_b,
-        req.category
-    )
-
+    job_store[job_id] = {"status": "processing", "summary": None, "error": None}
+    background_tasks.add_task(run_compare_audit_background, job_id, req.brand_a_name, clean_d_a, req.brand_b_name, clean_d_b, req.category)
     return {"job_id": job_id, "status": "processing"}
 
 
 @app.get("/api/v1/aeo/jobs/{job_id}")
 async def get_job_status(job_id: str):
-    if job_id not in job_store:
-        raise HTTPException(status_code=404, detail="Job ID not found.")
-    return job_store[job_id]
+    # 1. Check in-memory cache
+    if job_id in job_store:
+        return job_store[job_id]
+
+    # 2. Database Fallback (for permanent shareable URLs)
+    if supabase_db:
+        try:
+            res = supabase_db.table("audit_jobs").select("*").eq("id", job_id).execute()
+            if res.data and len(res.data) > 0:
+                record = res.data[0]
+                return {
+                    "job_id": record["id"],
+                    "status": record["status"],
+                    "summary": record.get("summary_payload"),
+                    "error": record.get("error_message")
+                }
+        except Exception as e:
+            print(f"[DB QUERY ERROR] Failed to fetch job {job_id}: {e}")
+
+    raise HTTPException(status_code=404, detail="Job ID not found.")
